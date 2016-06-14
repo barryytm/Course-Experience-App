@@ -36,3 +36,21 @@ CREATE TABLE Department (
     name varchar(30)
 )
 
+DROP TABLE IF EXISTS Prerequisite CASCADE;
+CREATE TABLE Prerequisite (
+    dept varchar(30),
+    name varchar(30),
+    preDept varchar(30),
+    preCourse varchar(30),
+    PRIMARY KEY (dept, name, preDept, preCourse)
+)
+
+DROP TABLE IF EXISTS Exclusion CASCADE;
+CREATE TABLE Exclusion (
+    dept varchar(30),
+    name varchar(30),
+    exDept varchar(30),
+    exCourse varchar(30),
+    PRIMARY KEY (dept, name, exDept, exCourse)
+)
+
