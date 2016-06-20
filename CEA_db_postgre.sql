@@ -12,10 +12,13 @@ CREATE TYPE au_type AS ENUM ("acquired", "used");
 CREATE TYPE four_level AS ENUM (2, 3, 4, 5);
 CREATE TYPE five_level AS ENUM (1, 2, 3, 4, 5);
 
+CREATE DOMAIN month AS int CHECK (VALUE BETWEEN 1 AND 12);
+CREATE DOMAIN course_digit AS int CHECK (VALUE BETWEEN 0 AND 499);
+
 DROP TABLE IF EXISTS instructors CASCADE;
 CREATE TABLE instructors (
     name varchar(30) PRIMARY KEY,
-    age int,
+    age int CONSTRAINT check_age CHECK (age BETWEEN 0 AND 200),
     gender gen_type,
     faculty_or_free ins_type
 )
@@ -47,24 +50,24 @@ CREATE TABLE research_interest (
 
 DROP TABLE IF EXISTS departments CASCADE;
 CREATE TABLE departments (
-    code varchar(3) PRIMARY KEY,
+    code char(3) PRIMARY KEY,
     name varchar(30)
 )
 
 DROP TABLE IF EXISTS courses CASCADE;
 CREATE TABLE courses (
-    dept_code varchar(3),
-    num int,
+    dept_code char(3),
+    num course_digit,
     area area_type,
     PRIMARY KEY (dept, num)
 )
 
 DROP TABLE IF EXISTS prerequisites CASCADE;
 CREATE TABLE prerequisites (
-    dept_code varchar(3),
-    course_num int,
-    pre_dept varchar(30),
-    pre_course varchar(30),
+    dept_code char(3),
+    course_num course_digit,
+    pre_dept char(30),
+    pre_course int,
     FOREIGN KEY (dept_code, course_num) 
         REFERENCES courses (dept_code, num) ON UPDATE CASCADE ON DELETE CASCADE,
     FOREIGN KEY (pre_dept, pre_course) 
@@ -74,10 +77,10 @@ CREATE TABLE prerequisites (
 
 DROP TABLE IF EXISTS exclusions CASCADE;
 CREATE TABLE exclusions (
-    dept_code varchar(3),
-    course_num int,
-    ex_dept varchar(30),
-    ex_course varchar(30),
+    dept_code char(3),
+    course_num course_digit,
+    ex_dept char(30),
+    ex_course int,
     FOREIGN KEY (dept_code, course_num) 
         REFERENCES courses (dept_code, num) ON UPDATE CASCADE ON DELETE CASCADE,
     FOREIGN KEY (ex_dept, ex_course) 
@@ -87,8 +90,8 @@ CREATE TABLE exclusions (
 
 DROP TABLE IF EXISTS course_skills CASCADE;
 CREATE TABLE course_skills (
-    dept_code varchar(3),
-    course_num int,
+    dept_code char(3),
+    course_num course_digit,
     skill varchar(30),
     FOREIGN KEY (dept_code, course_num) 
         REFERENCES courses (dept_code, num) ON UPDATE CASCADE ON DELETE CASCADE,
@@ -97,8 +100,8 @@ CREATE TABLE course_skills (
 
 DROP TABLE IF EXISTS course_topics CASCADE;
 CREATE TABLE course_topics (
-    dept_code varchar(3),
-    course_num int,
+    dept_code char(3),
+    course_num course_digit,
     topic varchar(30),
     FOREIGN KEY (dept_code, course_num) 
         REFERENCES courses (dept_code, num) ON UPDATE CASCADE ON DELETE CASCADE,
@@ -110,10 +113,11 @@ CREATE TABLE students (
     username varchar(30) PRIMARY KEY,
     gender gen_type, 
     birth_year int, 
-    birth_month int, 
+    birth_month month,
     birth_country varchar(30), 
-    enrol_year int, 
-    enrol_month int
+    enrol_year int,
+    enrol_month month,
+    CONSTRAINT check_birth CHECK (birth_year < enrol_year)
 )
 
 DROP TABLE IF EXISTS companies CASCADE;
@@ -136,7 +140,8 @@ CREATE TABLE employments (
     title varchar(30),
     start_date date,
     end_date date,
-    PRIMARY KEY (username, company_name, title)
+    PRIMARY KEY (username, company_name, title),
+    CONSTRAINT check_work CHECK (start_date < end_date)
 )
 
 DROP TABLE IF EXISTS employment_skill CASCADE;
@@ -153,28 +158,29 @@ CREATE TABLE employment_skill (
 
 DROP TABLE IF EXISTS sections CASCADE;
 CREATE TABLE sections (
-    dept_code varchar(3),
-    course_num int,
+    dept_code char(3),
+    course_num course_digit,
     start_date date,
     section_id int,
     end_date date,
     time_of_day time_type,
-    instructor_name string 
+    instructor_name varchar(30) 
         REFERENCES instructors ON UPDATE CASCADE ON DELETE SET NULL,
     enrol_num int,
     FOREIGN KEY (dept_code, course_num) 
         REFERENCES courses (dept_code, num) ON UPDATE CASCADE,
-    PRIMARY KEY (dept_Code, course_num, start_date, section_id)
+    PRIMARY KEY (dept_Code, course_num, start_date, section_id),
+    CONSTRAINT check_section CHECK (start_date < end_date)
 )
 
 DROP TABLE IF EXISTS experience CASCADE;
 CREATE TABLE experience (
-    dept_code varchar(3),
-    course_num int,
+    dept_code char(3),
+    course_num course_digit,
     start_date date,
     section_id int,
     username varchar(30) REFERENCES students ON UPDATE CASCADE,
-    grade int,
+    grade int CONSTRAINT check_grade CHECK (grade BETWEEN 0 AND 100),
     satisfaction five_level,
     rank_of_instructor five_level,
     start_interest five_level,
@@ -187,8 +193,8 @@ CREATE TABLE experience (
 
 DROP TABLE IF EXISTS course_skills CASCADE;
 CREATE TABLE course_skills (
-    dept_code varchar(3),
-    course_num int,
+    dept_code char(3),
+    course_num course_digit,
     start_date date,
     section_id int,
     username varchar(30),
