@@ -80,9 +80,87 @@ public class CEA extends JFrame {
         textField_GRADE = new JTextField(10);
         textField_SATISFACTION = new JTextField(10);
         textField_RANK_OF_INSTRUCTOR = new JTextField(10);
-        textField_label_START_INTEREST = new JTextField(10);
+        textField_START_INTEREST = new JTextField(10);
         textField_END_INTEREST = new JTextField(10);
 
         JButton button_ADD_EXPERIENCE = new JButton("Add Experience");
+
+        Container contentPane = getContentPane();
+        contentPane.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
+        contentPane.setLayout(new GridBagLayout());
+        GridBagConstraints c = new GridBagConstraints();
+
+        c.fill = GridBagConstraints.BOTH;
+        c.anchor = GridBagConstraints..CENTER;
+        c.weightx = 0.5;
+        c.weighty = 1.0;
+        c.gridx = 0;
+        c.gridy = 0;
+        c.gridwidth = 2;
+        contentPane.add(new JScrollPane(table), c);
+
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.anchor = GridBagConstraints.LINE_START;
+        c.weightx = 0.25;
+        c.weighty = 0;
+        c.gridx = 0;
+        c.gridy = 1;
+        c.gridwidth = 1;
+        contentPane.add(label_SATISFACTION, c);
+
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.anchor = GridBagConstraints.LINE_END;
+        c.weightx = 0.75;
+        c.weighty = 0;
+        c.gridx = 1;
+        c.gridy = 1;
+        c.gridwidth = 1;
+        contentPane.add(textField_SATISFACTION, c);
+
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.weightx = 0.25;
+        c.weighty = 0;
+        c.anchor = GridBagConstraints.LINE_START;
+        c.gridx = 0;
+        c.gridy = 2;
+        c.gridwidth = 1;
+        contentPane.add(label_RANK_OF_INSTRUCTOR, c);
+
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.anchor = GridBagConstraints.LINE_END;
+        c.weightx = 0.75;
+        c.weighty = 0;
+        c.gridx = 1;
+        c.gridy = 2;
+        c.gridwidth = 1;
+        contentPane.add(textField_RANK_OF_INSTRUCTOR, c);
+
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.anchor = GridBagConstraints.LINE_START;
+        c.weightx = 0.25;
+        c.weighty = 0;
+        c.gridx = 0;
+        c.gridy = 3;
+        c.gridwidth = 1;
+        contentPane.add(label_START_INTEREST, c);
+
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.anchor = GridBagConstraints.LINE_END;
+        c.weightx = 0.75;
+        c.weighty = 0;
+        c.gridx = 1;
+        c.gridy = 3;
+        c.gridwidth = 1;
+        contentPane.add(textField_END_INTEREST, c);
+
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.anchor = GridBagConstraints.LINE_START;
+        c.weightx = 0.5;
+        c.weighty = 0;
+        c.gridx = 0;
+        c.gridy = 6;
+        c.gridwidth = 2;
+        contentPane.add(button_ADD_EXPERIENCE, c);
+
     }
 }
