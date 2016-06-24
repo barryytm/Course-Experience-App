@@ -41,7 +41,7 @@ CREATE TABLE faculty (
 );
 
 DROP TABLE IF EXISTS research_interests CASCADE;
-CREATE TABLE research_interest (
+CREATE TABLE research_interests (
     name varchar(30)
         REFERENCES instructors ON UPDATE CASCADE ON DELETE CASCADE,
     interest varchar(30),
