@@ -1,15 +1,3 @@
--- CREATE TYPE ins_type AS ENUM ('faculty', 'freelancer');
--- CREATE TYPE fas_type AS ENUM ('research', 'teaching');
--- CREATE TYPE gen_type AS ENUM ('male', 'female', 'other');
--- CREATE TYPE area_type AS ENUM ('science', 'social_science', 'humanity', 'engineering');
--- CREATE TYPE time_type AS ENUM ('morning', 'afternoon', 'evening');
--- CREATE TYPE au_type AS ENUM ('acquired', 'used');
---
--- CREATE DOMAIN four_level AS int CHECK (VALUE BETWEEN 2 AND 5);
--- CREATE DOMAIN five_level AS int CHECK (VALUE BETWEEN 1 AND 5);
--- CREATE DOMAIN month AS int CHECK (VALUE BETWEEN 1 AND 12);
--- CREATE DOMAIN course_digit AS int CHECK (VALUE BETWEEN 0 AND 499);
-
 DROP TABLE IF EXISTS instructors;
 CREATE TABLE instructors (
     name text PRIMARY KEY,
