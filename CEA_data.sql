@@ -5,6 +5,12 @@ INSERT INTO departments VALUES ("MAT", "Mathemetics");
 INSERT INTO departments VALUES ("CHM", "Chemistry");
 INSERT INTO departments VALUES ("PHY", "Physics");
 INSERT INTO departments VALUES ("STA", "Statistics");
+INSERT INTO departments VALUES ("GGR", "Geography");
+INSERT INTO departments VALUES ("PHL", "Philosophy");
+INSERT INTO departments VALUES ("CLA", "Classics");
+INSERT INTO departments VALUES ("PHL", "Philosophy");
+INSERT INTO departments VALUES ("ANT", "Anthopology");
+
 
 INSERT INTO courses VALUES ("BIO", 120, "science");
 INSERT INTO courses VALUES ("BIO", 130, "science");
@@ -27,5 +33,13 @@ INSERT INTO courses VALUES ("CSC", 236, "science");
 INSERT INTO courses VALUES ("CSC", 263, "science");
 INSERT INTO courses VALUES ("CSC", 258, "science");
 INSERT INTO courses VALUES ("STA", 247, "science");
+INSERT INTO courses VALUES ("PHY", 151, "science");
+INSERT INTO courses VALUES ("GGR", 124, "social_science");
+INSERT INTO courses VALUES ("PHL", 245, "humanity");
+INSERT INTO courses VALUES ("GGR", 101, "science");
+INSERT INTO courses VALUES ("CLA", 201, "humanity");
+INSERT INTO courses VALUES ("ANT", 100, "humanity");
+
+
 
 INSERT INTO students VALUES ("jiananya", "male", 1995, 11, "china", 2014, 09);
