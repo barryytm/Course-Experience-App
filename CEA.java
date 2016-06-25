@@ -376,6 +376,8 @@ public class CEA extends JFrame {
                     exp.addExperienceToDB(connection);
                     clearInput();
                     refreshTable();
+                } catch (SQLException e) {
+                    SQLError.show(e);
                 }
             }
         });
@@ -400,6 +402,32 @@ public class CEA extends JFrame {
     private void refreshTable() {
         try {
             DefaultTableModel model = new DefaultTableModel(new Object[0][0], columnNames);
+            java.util.List<Experience> experiences = Experience.getAllExperiences(connection);
+
+            for (Experience exp : experiences) {
+                Object[] obj = new Object[13];
+
+                obj[0] = exp.getUsername();
+                obj[1] = exp.getDeptCode();
+                obj[2] = exp.getCourseNum();
+                obj[3] = exp.getStartDate();
+                obj[4] = exp.getSectionId();
+                obj[5] = exp.getGrade();
+                obj[6] = exp.getSatisfaction();
+                obj[7] = exp.getRankOfInstructor();
+                obj[8] = exp.getStartInterest();
+                obj[9] = exp.getEndInterest();
+                obj[10] = exp.getSkill();
+                obj[11] = exp.getStartLevel();
+                obj[12] = exp.getEndLevel();
+
+                model.addRow(obj);
+            }
+
+            table.setModel(model);
+            table.repaint();
+        } catch (SQLException ex) {
+            SQLError.show(ex);
         }
     }
 }
