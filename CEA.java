@@ -359,14 +359,47 @@ public class CEA extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 Experience exp = new Experience();
 
+                exp.setUsername(textField_USERNAME.getText());
+                exp.setDeptCode(textField_DEPT_CODE.getText());
+                exp.setCourseNum(textField_COURSE_NUM.getText());
+                exp.setStartDate(textField_START_DATE.getText());
+
                 exp.setSatisfaction(textField_SATISFACTION.getText());
                 exp.setRankOfInstructor(textField_RANK_OF_INSTRUCTOR.getText());
                 exp.setStartInterest(textField_START_INTEREST.getText());
                 exp.setEndInterest(textField_END_INTEREST.getText());
-                exp.setEndInterest(textField_SKILL.getText());
-                exp.setEndInterest(textField_START_LEVEL.getText());
-                exp.setEndInterest(textField_END_LEVEL.getText());
+                exp.setSkill(textField_SKILL.getText());
+                exp.setStartLevel(textField_START_LEVEL.getText());
+                exp.setEndLevel(textField_END_LEVEL.getText());
+
+                try {
+                    exp.addExperienceToDB(connection);
+                    clearInput();
+                    refreshTable();
+                }
             }
         });
+    }
+
+    private void clearInputs() {
+        textField_USERNAME.setText("");
+        textField_DEPT_CODE.setText("");
+        textField_COURSE_NUM.setText("");
+        textField_START_DATE.setText("");
+        textField_SECTION_ID.setText("");
+        textField_GRADE.setText("");
+        textField_SATISFACTION.setText("");
+        textField_RANK_OF_INSTRUCTOR.setText("");
+        textField_START_INTEREST.setText("");
+        textField_END_INTEREST.setText("");
+        textField_SKILL.setText("");
+        textField_START_SKILL.setText("");
+        textField_END_SKILL.setText("");
+    }
+
+    private void refreshTable() {
+        try {
+            DefaultTableModel model = new DefaultTableModel(new Object[0][0], columnNames);
+        }
     }
 }
