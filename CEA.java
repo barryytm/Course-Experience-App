@@ -430,4 +430,27 @@ public class CEA extends JFrame {
             SQLError.show(ex);
         }
     }
+
+    public static void main(String[] args) throws IOException, SQLException {
+        if (args.length == 0) {
+            System.out.printIn("Usage: " + PROGRAM_NAME + "<name of property file>");
+            System.exit(1);
+        }
+
+        Properties props = new Properties();
+        FileInputStream in = new FileInputStream(args[0]);
+        props.load(in);
+        in.close();
+
+        java.sql.Connection conn = DBConnection.getConnection(props);
+
+        if (conn == null) {
+            System.exit(1);
+        }
+
+        CEA cea = new CEA(conn);
+
+        cea.pack();
+        cea.setVisible(true);
+    }
 }
