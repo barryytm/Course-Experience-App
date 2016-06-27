@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 INSERT INTO departments VALUES ('CSC', 'Computer Science');
 INSERT INTO departments VALUES ('BIO', 'Biology');
 INSERT INTO departments VALUES ('BCH', 'Biochemistry');
@@ -90,3 +89,13 @@ INSERT INTO companies VALUES('North America Corporation');
 
 INSERT INTO company_expertise VALUES('A&B ltd', 'energy');
 INSERT INTO company_expertise VALUES('North America Corporation', 'mining');
+
+INSERT INTO sections VALUES ("BIO", 120, 2014-09-01, 01, 2014-12-31, "morning", "UNKNOWN", 1200);
+INSERT INTO sections VALUES ("CHM", 138, 2014-09-01, 01, 2014-12-31, "morning", "UNKNOWN", 1200);
+INSERT INTO sections VALUES ("PHY", 131, 2014-09-01, 01, 2014-12-31, "morning", "UNKNOWN", 1200);
+INSERT INTO sections VALUES ("MAT", 135, 2014-09-01, 01, 2014-12-31, "morning", "UNKNOWN", 1200);
+INSERT INTO sections VALUES ("BIO", 130, 2015-01-01, 01, 2015-04-30, "morning", "UNKNOWN", 1200);
+INSERT INTO sections VALUES ("CHM", 139, 2015-01-01, 01, 2015-04-30, "morning", "UNKNOWN", 1200);
+INSERT INTO sections VALUES ("PHY", 132, 2015-01-01, 01, 2015-04-30, "morning", "UNKNOWN", 1200);
+INSERT INTO sections VALUES ("MAT", 136, 2015-01-01, 01, 2015-04-30, "morning", "UNKNOWN", 1200);
+
