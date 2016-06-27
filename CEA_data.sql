@@ -76,8 +76,8 @@ INSERT INTO prerequisites VALUES('CSC', 343, 'CSC', 207);
 INSERT INTO prerequisites VALUES('CSC', 369, 'CSC', 209);
 INSERT INTO prerequisites VALUES('CSC', 369, 'CSC', 258);
 
-INSERT INTO course_skills VALUES('CSC', 343, '2015-05-30', 01, 'jiananya', 2, 5, 'PostgreSQL');
-INSERT INTO course_skills VALUES('CSC', 207, '2015-09-10', 01, 'yungtsz', 1, 4, 'Java');
+INSERT INTO course_skills VALUES('CSC', 343, '2015-05-30', 01, 'jiananya', 'PostgreSQL', 2, 5);
+INSERT INTO course_skills VALUES('CSC', 207, '2015-09-10', 01, 'yungtsz', 'Java', 1, 4);
 
 INSERT INTO course_topics VALUES('CSC', 343, 'Database');
 INSERT INTO course_topics VALUES('CSC', 148, 'object oriented programming');
