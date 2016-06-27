@@ -88,16 +88,6 @@ CREATE TABLE exclusions (
     PRIMARY KEY (dept_code, course_num, ex_dept, ex_course)
 );
 
-DROP TABLE IF EXISTS course_skills CASCADE;
-CREATE TABLE course_skills (
-    dept_code char(3),
-    course_num course_digit,
-    skill varchar(30),
-    FOREIGN KEY (dept_code, course_num)
-        REFERENCES courses (dept_code, num) ON UPDATE CASCADE ON DELETE CASCADE,
-    PRIMARY KEY (dept_code, course_num, skill)
-);
-
 DROP TABLE IF EXISTS course_topics CASCADE;
 CREATE TABLE course_topics (
     dept_code char(3),
