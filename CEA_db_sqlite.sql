@@ -82,16 +82,6 @@ CREATE TABLE exclusions (
     PRIMARY KEY (dept_code, course_num, ex_dept, ex_course)
 );
 
-DROP TABLE IF EXISTS course_skills;
-CREATE TABLE course_skills (
-    dept_code text,
-    course_num INTEGER CONSTRAINT course_num_check CHECK (course_num >= 0 AND course_num <= 499),
-    skill text,
-    FOREIGN KEY (dept_code, course_num)
-        REFERENCES courses (dept_code, num) ON UPDATE CASCADE ON DELETE CASCADE,
-    PRIMARY KEY (dept_code, course_num, skill)
-);
-
 DROP TABLE IF EXISTS course_topics;
 CREATE TABLE course_topics (
     dept_code text,
@@ -111,10 +101,10 @@ CREATE TABLE students (
         gender = 'other'
     ),
     birth_year integer,
-    birth_month INTEGER CHECK (birth_month <= 1 AND birth_month >= 12),
+    birth_month INTEGER CHECK (birth_month >= 1 AND birth_month <= 12),
     birth_country text,
     enrol_year integer,
-    enrol_month INTEGER CHECK (enrol_month <= 1 AND enrol_month >= 12),
+    enrol_month INTEGER CHECK (enrol_month >= 1 AND enrol_month <= 12),
     CONSTRAINT check_birth CHECK (birth_year < enrol_year)
 );
 

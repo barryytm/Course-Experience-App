@@ -8,10 +8,8 @@ INSERT INTO departments VALUES ('STA', 'Statistics');
 INSERT INTO departments VALUES ('GGR', 'Geography');
 INSERT INTO departments VALUES ('PHL', 'Philosophy');
 INSERT INTO departments VALUES ('CLA', 'Classics');
-INSERT INTO departments VALUES ('PHL', 'Philosophy');
-INSERT INTO departments VALUES ('ANT', 'Anthopology');
+INSERT INTO departments VALUES ('ANT', 'Anthropology');
 
-INSERT INTO courses VALUES ('CSC', 120, 'science');
 INSERT INTO courses VALUES ('BIO', 120, 'science');
 INSERT INTO courses VALUES ('BIO', 130, 'science');
 INSERT INTO courses VALUES ('CHM', 138, 'science');
@@ -40,7 +38,7 @@ INSERT INTO courses VALUES ('GGR', 101, 'science');
 INSERT INTO courses VALUES ('CLA', 201, 'humanity');
 INSERT INTO courses VALUES ('ANT', 100, 'humanity');
 
-INSERT INTO students VALUES ('jiananya', 'male', 1995, 11, 'china', 2014, 09);
+    INSERT INTO students VALUES ('jiananya', 'male', 1995, 11, 'china', 2014, 09);
 INSERT INTO students VALUES ('yungtsz', 'male', 1996, 01, 'canada', 2014, 09);
 
 INSERT INTO instructors VALUES('Wright', 42, 'female', 'faculty');
@@ -78,8 +76,8 @@ INSERT INTO prerequisites VALUES('CSC', 343, 'CSC', 207);
 INSERT INTO prerequisites VALUES('CSC', 369, 'CSC', 209);
 INSERT INTO prerequisites VALUES('CSC', 369, 'CSC', 258);
 
-INSERT INTO course_skills VALUES('CSC', 343, 'PostgreSQL');
-INSERT INTO course_skills VALUES('CSC', 207, 'Java');
+INSERT INTO course_skills VALUES('CSC', 343, '2015-05-30', 01, 'jiananya', 2, 5, 'PostgreSQL');
+INSERT INTO course_skills VALUES('CSC', 207, '2015-09-10', 01, 'yungtsz', 1, 4, 'Java');
 
 INSERT INTO course_topics VALUES('CSC', 343, 'Database');
 INSERT INTO course_topics VALUES('CSC', 148, 'object oriented programming');
@@ -90,12 +88,11 @@ INSERT INTO companies VALUES('North America Corporation');
 INSERT INTO company_expertise VALUES('A&B ltd', 'energy');
 INSERT INTO company_expertise VALUES('North America Corporation', 'mining');
 
-INSERT INTO sections VALUES ("BIO", 120, 2014-09-01, 01, 2014-12-31, "morning", "UNKNOWN", 1200);
-INSERT INTO sections VALUES ("CHM", 138, 2014-09-01, 01, 2014-12-31, "morning", "UNKNOWN", 1200);
-INSERT INTO sections VALUES ("PHY", 131, 2014-09-01, 01, 2014-12-31, "morning", "UNKNOWN", 1200);
-INSERT INTO sections VALUES ("MAT", 135, 2014-09-01, 01, 2014-12-31, "morning", "UNKNOWN", 1200);
-INSERT INTO sections VALUES ("BIO", 130, 2015-01-01, 01, 2015-04-30, "morning", "UNKNOWN", 1200);
-INSERT INTO sections VALUES ("CHM", 139, 2015-01-01, 01, 2015-04-30, "morning", "UNKNOWN", 1200);
-INSERT INTO sections VALUES ("PHY", 132, 2015-01-01, 01, 2015-04-30, "morning", "UNKNOWN", 1200);
-INSERT INTO sections VALUES ("MAT", 136, 2015-01-01, 01, 2015-04-30, "morning", "UNKNOWN", 1200);
-
+INSERT INTO sections VALUES ("BIO", 120, '2014-09-01', 01, '2014-12-31', "morning", "UNKNOWN", 1200);
+INSERT INTO sections VALUES ("CHM", 138, '2014-09-01', 01, '2014-12-31', "morning", "UNKNOWN", 1200);
+INSERT INTO sections VALUES ("PHY", 131, '2014-09-01', 01, '2014-12-31', "morning", "UNKNOWN", 1200);
+INSERT INTO sections VALUES ("MAT", 135, '2014-09-01', 01, '2014-12-31', "morning", "UNKNOWN", 1200);
+INSERT INTO sections VALUES ("BIO", 130, '2015-01-01', 01, '2015-04-30', "morning", "UNKNOWN", 1200);
+INSERT INTO sections VALUES ("CHM", 139, '2015-01-01', 01, '2015-04-30', "morning", "UNKNOWN", 1200);
+INSERT INTO sections VALUES ("PHY", 132, '2015-01-01', 01, '2015-04-30', "morning", "UNKNOWN", 1200);
+INSERT INTO sections VALUES ("MAT", 136, '2015-01-01', 01, '2015-04-30', "morning", "UNKNOWN", 1200);
