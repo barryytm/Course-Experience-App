@@ -69,20 +69,20 @@ INSERT INTO research_interests VALUES('Wright', 'NvsNP');
 INSERT INTO research_interests VALUES('Truman', 'Latin Translation');
 INSERT INTO research_interests VALUES('Lee', 'Relativity');
 
-INSERT INTO exclusions VALUES('csc', 108, 'csc', 120);
+INSERT INTO exclusions VALUES('CSC', 108, 'CSC', 120);
 
-INSERT INTO prerequisites VALUES('csc', 207, 'csc', 148);
-INSERT INTO prerequisites VALUES('csc', 209, 'csc', 207);
-INSERT INTO prerequisites VALUES('csc', 309, 'csc', 209);
-INSERT INTO prerequisites VALUES('csc', 343, 'csc', 207);
-INSERT INTO prerequisites VALUES('csc', 369, 'csc', 209);
-INSERT INTO prerequisites VALUES('csc', 369, 'csc', 258);
+INSERT INTO prerequisites VALUES('CSC', 207, 'CSC', 148);
+INSERT INTO prerequisites VALUES('CSC', 209, 'CSC', 207);
+INSERT INTO prerequisites VALUES('CSC', 309, 'CSC', 209);
+INSERT INTO prerequisites VALUES('CSC', 343, 'CSC', 207);
+INSERT INTO prerequisites VALUES('CSC', 369, 'CSC', 209);
+INSERT INTO prerequisites VALUES('CSC', 369, 'CSC', 258);
 
-INSERT INTO course_skills VALUES('csc', 343, 'PostgreSQL');
-INSERT INTO course_skills VALUES('csc', 207, 'Java');
+INSERT INTO course_skills VALUES('CSC', 343, 'PostgreSQL');
+INSERT INTO course_skills VALUES('CSC', 207, 'Java');
 
-INSERT INTO course_topics VALUES('csc', 343, 'Database');
-INSERT INTO course_topics VALUES('csc', 148, 'object oriented programming');
+INSERT INTO course_topics VALUES('CSC', 343, 'Database');
+INSERT INTO course_topics VALUES('CSC', 148, 'object oriented programming');
 
 INSERT INTO companies VALUES('A&B ltd');
 INSERT INTO companies VALUES('North America Corporation');
