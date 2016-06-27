@@ -40,6 +40,15 @@ INSERT INTO courses VALUES ("GGR", 101, "science");
 INSERT INTO courses VALUES ("CLA", 201, "humanity");
 INSERT INTO courses VALUES ("ANT", 100, "humanity");
 
+INSERT INTO sections VALUES ("BIO", 120, 2014-09-01, 01, 2014-12-31, "morning", "UNKNOWN", 1200);
+INSERT INTO sections VALUES ("CHM", 138, 2014-09-01, 01, 2014-12-31, "morning", "UNKNOWN", 1200);
+INSERT INTO sections VALUES ("PHY", 131, 2014-09-01, 01, 2014-12-31, "morning", "UNKNOWN", 1200);
+INSERT INTO sections VALUES ("MAT", 135, 2014-09-01, 01, 2014-12-31, "morning", "UNKNOWN", 1200);
+INSERT INTO sections VALUES ("BIO", 130, 2015-01-01, 01, 2015-04-30, "morning", "UNKNOWN", 1200);
+INSERT INTO sections VALUES ("CHM", 139, 2015-01-01, 01, 2015-04-30, "morning", "UNKNOWN", 1200);
+INSERT INTO sections VALUES ("PHY", 132, 2015-01-01, 01, 2015-04-30, "morning", "UNKNOWN", 1200);
+INSERT INTO sections VALUES ("MAT", 136, 2015-01-01, 01, 2015-04-30, "morning", "UNKNOWN", 1200);
+
 
 
 INSERT INTO students VALUES ("jiananya", "male", 1995, 11, "china", 2014, 09);
