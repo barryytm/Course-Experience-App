@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 INSERT INTO departments VALUES ('CSC', 'Computer Science');
 INSERT INTO departments VALUES ('BIO', 'Biology');
 INSERT INTO departments VALUES ('BCH', 'Biochemistry');
