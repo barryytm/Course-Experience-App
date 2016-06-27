@@ -30,7 +30,7 @@ public class CEA extends JFrame {
     JLabel label_END_INTEREST;
     JLabel label_SKILL;
     JLabel label_START_LEVEL;
-    JLabek label_END_LEVEL;
+    JLabel label_END_LEVEL;
     
     JTextField textField_USERNAME;
     JTextField textField_DEPT_CODE;
@@ -65,7 +65,7 @@ public class CEA extends JFrame {
         });
 
         table = new JTable();
-        refreshTabel();
+        refreshTable();
 
         // setting up new components
         label_USERNAME = new JLabel("Username:");
@@ -79,8 +79,8 @@ public class CEA extends JFrame {
         label_START_INTEREST = new JLabel("Start_Interest:");
         label_END_INTEREST = new JLabel("End_Interest:");
         label_SKILL = new JLabel("Skill:");
-        label_START_SKILL = new JLabel("Start_Skill:");
-        label_END_SKILL = new JLabel("End_Skill:");
+        label_START_LEVEL = new JLabel("Start_Skill:");
+        label_END_LEVEL = new JLabel("End_Skill:");
 
         textField_USERNAME = new JTextField(10);
         textField_DEPT_CODE = new JTextField(10);
@@ -93,8 +93,8 @@ public class CEA extends JFrame {
         textField_START_INTEREST = new JTextField(10);
         textField_END_INTEREST = new JTextField(10);
         textField_SKILL = new JTextField(10);
-        textField_START_SKILL = new JTextField(10);
-        textField_END_SKILL = new JTextField(10);
+        textField_START_LEVEL = new JTextField(10);
+        textField_END_LEVEL = new JTextField(10);
 
         JButton button_ADD_EXPERIENCE = new JButton("Add Experience");
 
@@ -104,7 +104,7 @@ public class CEA extends JFrame {
         GridBagConstraints c = new GridBagConstraints();
 
         c.fill = GridBagConstraints.BOTH;
-        c.anchor = GridBagConstraints..CENTER;
+        c.anchor = GridBagConstraints.CENTER;
         c.weightx = 0.5;
         c.weighty = 1.0;
         c.gridx = 0;
@@ -374,10 +374,10 @@ public class CEA extends JFrame {
 
                 try {
                     exp.addExperienceToDB(connection);
-                    clearInput();
+                    clearInputs();
                     refreshTable();
-                } catch (SQLException e) {
-                    SQLError.show(e);
+                } catch (SQLException ex) {
+                    SQLError.show(ex);
                 }
             }
         });
@@ -395,8 +395,8 @@ public class CEA extends JFrame {
         textField_START_INTEREST.setText("");
         textField_END_INTEREST.setText("");
         textField_SKILL.setText("");
-        textField_START_SKILL.setText("");
-        textField_END_SKILL.setText("");
+        textField_START_LEVEL.setText("");
+        textField_END_LEVEL.setText("");
     }
 
     private void refreshTable() {
@@ -433,7 +433,7 @@ public class CEA extends JFrame {
 
     public static void main(String[] args) throws IOException, SQLException {
         if (args.length == 0) {
-            System.out.printIn("Usage: " + PROGRAM_NAME + "<name of property file>");
+            System.out.println("Usage: " + PROGRAM_NAME + "<name of property file>");
             System.exit(1);
         }
 

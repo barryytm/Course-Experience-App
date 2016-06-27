@@ -1,7 +1,6 @@
 package com.cea;
 
 import java.util.*;
-import java.io.*;
 import java.sql.*;
 
 public class DBConnection {
@@ -32,6 +31,17 @@ public class DBConnection {
             javax.swing.JOptionPane.showMessageDialog(null, ex, "Failed to connect with database", javax.swing.JOptionPane.ERROR_MESSAGE);
             return null;
         }
+    }
+    
+    public static void closeConnection ( java.sql.Connection conn){
+    	if (conn !=null) {
+    		try {
+    			conn.close();
+    		}
+    		catch (SQLException e){
+    			SQLError.print(e);
+    		}
+    	}
     }
     
 }

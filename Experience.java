@@ -71,7 +71,7 @@ public class Experience {
         try {
             conn.setAutoCommit(false);
 
-            stmt1 = conn.preparedStatement(updateSQL1);
+            stmt1 = conn.prepareStatement(updateSQL1);
             stmt1.setString(1, this.satisfaction);
             stmt1.setString(2, this.rankOfInstructor);
             stmt1.setString(3, this.startInterest);
@@ -82,7 +82,7 @@ public class Experience {
             stmt1.setString(8, this.startDate);
             stmt1.setString(9, this.sectionId);
 
-            stmt2 = conn.preparedStatement(updateSQL2);
+            stmt2 = conn.prepareStatement(updateSQL2);
             stmt2.setString(1, this.skill);
             stmt1.setString(2, this.startLevel);
             stmt1.setString(3, this.endLevel);
@@ -109,7 +109,7 @@ public class Experience {
         }
     }
 
-    public static List<Experience> getAllExperiences(Connection conn) throws SQLExperience {
+    public static List<Experience> getAllExperiences(Connection conn) throws SQLException {
         List<Experience> experiences = new ArrayList<Experience>();
         Statement stmt = null;
 
@@ -117,7 +117,7 @@ public class Experience {
             stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(selectSQL);
 
-            while (re.next()) {
+            while (rs.next()) {
                 Experience exp = new Experience();
 
                 exp.setUsername(rs.getString("username"));
