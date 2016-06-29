@@ -2,7 +2,7 @@ DROP TABLE IF EXISTS instructors;
 CREATE TABLE instructors (
     name text PRIMARY KEY,
     age integer CONSTRAINT check_age CHECK (age BETWEEN 0 AND 200),
-    gender ,
+    gender text,
     faculty_or_free text CONSTRAINT ins_check CHECK (
         faculty_or_free = 'faculty' OR
         faculty_or_free = 'freelancer'
