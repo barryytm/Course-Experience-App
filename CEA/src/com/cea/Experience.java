@@ -18,7 +18,7 @@ public class Experience {
     private String startLevel;
     private String endLevel;
 
-    private String updateSQL1 = "UPDATE TABLE experience" +
+    private String updateSQL1 = "UPDATE experience " +
                                 "SET satisfaction = ?," +
                                 "rank_of_instructor = ?," +
                                 "start_interest = ?," +
@@ -29,7 +29,7 @@ public class Experience {
                                 "start_date = ? AND " +
                                 "section_id = ?";
 
-    private String updateSQL2 = "UPDATE TABLE course_skills" +
+    private String updateSQL2 = "UPDATE course_skills " +
                                 "SET skill = ?," +
                                 "start_level = ?," +
                                 "end_level = ? " +
@@ -52,12 +52,7 @@ public class Experience {
                                         "skill," +
                                         "start_level," +
                                         "end_level " +
-                                        "FROM experience, course_skills " +
-                                        "WHERE experience.username = course_skills.username AND " +
-                                        "experience.dept_code = course_skills.dept_code AND " +
-                                        "experience.course_num = course_skills.course_num AND " +
-                                        "experience.start_date = course_skills.start_date AND " +
-                                        "experience.section_id = course_skills.section_id";
+                                        "FROM experience natural join course_skills";
 
     PreparedStatement stmt1 = null;
     PreparedStatement stmt2 = null;         
@@ -84,13 +79,13 @@ public class Experience {
 
             stmt2 = conn.prepareStatement(updateSQL2);
             stmt2.setString(1, this.skill);
-            stmt1.setString(2, this.startLevel);
-            stmt1.setString(3, this.endLevel);
-            stmt1.setString(4, this.username);
-            stmt1.setString(5, this.deptCode);
-            stmt1.setString(6, this.courseNum);
-            stmt1.setString(7, this.startDate);
-            stmt1.setString(8, this.sectionId);
+            stmt2.setString(2, this.startLevel);
+            stmt2.setString(3, this.endLevel);
+            stmt2.setString(4, this.username);
+            stmt2.setString(5, this.deptCode);
+            stmt2.setString(6, this.courseNum);
+            stmt2.setString(7, this.startDate);
+            stmt2.setString(8, this.sectionId);
 
             stmt1.execute();
             stmt2.execute();
@@ -116,23 +111,23 @@ public class Experience {
         try {
             stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(selectSQL);
-
+            
             while (rs.next()) {
                 Experience exp = new Experience();
 
                 exp.setUsername(rs.getString("username"));
                 exp.setDeptCode(rs.getString("dept_code"));
-                exp.setUsername(rs.getString("course_num"));
-                exp.setUsername(rs.getString("start_date"));
-                exp.setUsername(rs.getString("section_id"));
-                exp.setUsername(rs.getString("grade"));
-                exp.setUsername(rs.getString("satisfaction"));
-                exp.setUsername(rs.getString("rank_of_instructor"));
-                exp.setUsername(rs.getString("start_interest"));
-                exp.setUsername(rs.getString("end_interest"));
-                exp.setUsername(rs.getString("skill"));
-                exp.setUsername(rs.getString("start_level"));
-                exp.setUsername(rs.getString("end_level"));
+                exp.setCourseNum(rs.getString("course_num"));
+                exp.setStartDate(rs.getString("start_date"));
+                exp.setSectionId(rs.getString("section_id"));
+                exp.setGrade(rs.getString("grade"));
+                exp.setSatisfaction(rs.getString("satisfaction"));
+                exp.setRankOfInstructor(rs.getString("rank_of_instructor"));
+                exp.setStartInterest(rs.getString("start_interest"));
+                exp.setEndInterest(rs.getString("end_interest"));
+                exp.setSkill(rs.getString("skill"));
+                exp.setStartLevel(rs.getString("start_level"));
+                exp.setEndLevel(rs.getString("end_level"));
 
                 experiences.add(exp);
             }
@@ -198,7 +193,7 @@ public class Experience {
         return this.sectionId;
     }
 
-    public void setSectioniD(String sectionId) {
+    public void setSectionId(String sectionId) {
         this.sectionId = sectionId;
     }
 

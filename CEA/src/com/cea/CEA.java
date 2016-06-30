@@ -363,6 +363,7 @@ public class CEA extends JFrame {
                 exp.setDeptCode(textField_DEPT_CODE.getText());
                 exp.setCourseNum(textField_COURSE_NUM.getText());
                 exp.setStartDate(textField_START_DATE.getText());
+                exp.setSectionId(textField_SECTION_ID.getText());
 
                 exp.setSatisfaction(textField_SATISFACTION.getText());
                 exp.setRankOfInstructor(textField_RANK_OF_INSTRUCTOR.getText());
@@ -403,7 +404,7 @@ public class CEA extends JFrame {
         try {
             DefaultTableModel model = new DefaultTableModel(new Object[0][0], columnNames);
             java.util.List<Experience> experiences = Experience.getAllExperiences(connection);
-
+            
             for (Experience exp : experiences) {
                 Object[] obj = new Object[13];
 
@@ -447,7 +448,7 @@ public class CEA extends JFrame {
         if (conn == null) {
             System.exit(1);
         }
-
+        
         CEA cea = new CEA(conn);
 
         cea.pack();
