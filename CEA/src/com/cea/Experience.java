@@ -30,14 +30,14 @@ public class Experience {
                                 "section_id = ?";
 
     private String updateSQL2 = "UPDATE course_skills " +
-                                "SET skill = ?," +
-                                "start_level = ?," +
+                                "SET start_level = ?," +
                                 "end_level = ? " +
                                 "WHERE username = ? AND " +
                                 "dept_code = ? AND " +
                                 "course_num = ? AND " +
                                 "start_date = ? AND " +
-                                "section_id = ?";
+                                "section_id = ? AND " +
+                                "skill = ?";
 
     private static String selectSQL = "SELECT experience.username," +
                                         "experience.dept_code," +
@@ -78,14 +78,14 @@ public class Experience {
             stmt1.setString(9, this.sectionId);
 
             stmt2 = conn.prepareStatement(updateSQL2);
-            stmt2.setString(1, this.skill);
-            stmt2.setString(2, this.startLevel);
-            stmt2.setString(3, this.endLevel);
-            stmt2.setString(4, this.username);
-            stmt2.setString(5, this.deptCode);
-            stmt2.setString(6, this.courseNum);
-            stmt2.setString(7, this.startDate);
-            stmt2.setString(8, this.sectionId);
+            stmt2.setString(1, this.startLevel);
+            stmt2.setString(2, this.endLevel);
+            stmt2.setString(3, this.username);
+            stmt2.setString(4, this.deptCode);
+            stmt2.setString(5, this.courseNum);
+            stmt2.setString(6, this.startDate);
+            stmt2.setString(7, this.sectionId);
+            stmt2.setString(8, this.skill);
 
             stmt1.execute();
             stmt2.execute();

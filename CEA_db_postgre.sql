@@ -194,5 +194,5 @@ CREATE TABLE course_skills (
     FOREIGN KEY (dept_code, course_num, start_date, section_id, username)
         REFERENCES experience (dept_code, course_num, start_date, section_id, username)
         ON UPDATE CASCADE,
-    PRIMARY KEY (dept_code, course_num, start_date, section_id, username)
+    PRIMARY KEY (dept_code, course_num, start_date, section_id, username, skill)
 );

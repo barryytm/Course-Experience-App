@@ -79,8 +79,8 @@ public class CEA extends JFrame {
         label_START_INTEREST = new JLabel("Start_Interest:");
         label_END_INTEREST = new JLabel("End_Interest:");
         label_SKILL = new JLabel("Skill:");
-        label_START_LEVEL = new JLabel("Start_Skill:");
-        label_END_LEVEL = new JLabel("End_Skill:");
+        label_START_LEVEL = new JLabel("Start_Level:");
+        label_END_LEVEL = new JLabel("End_Level:");
 
         textField_USERNAME = new JTextField(10);
         textField_DEPT_CODE = new JTextField(10);
@@ -109,9 +109,9 @@ public class CEA extends JFrame {
         c.weighty = 1.0;
         c.gridx = 0;
         c.gridy = 0;
-        c.gridwidth = 2;
+        c.gridwidth = 4;
         contentPane.add(new JScrollPane(table), c);
-               
+        
         c.fill = GridBagConstraints.HORIZONTAL;
         c.anchor = GridBagConstraints.LINE_START;
         c.weightx = 0.25;
@@ -134,8 +134,8 @@ public class CEA extends JFrame {
         c.anchor = GridBagConstraints.LINE_START;
         c.weightx = 0.25;
         c.weighty = 0;
-        c.gridx = 0;
-        c.gridy = 2;
+        c.gridx = 2;
+        c.gridy = 1;
         c.gridwidth = 1;
         contentPane.add(label_DEPT_CODE, c);
 
@@ -143,8 +143,8 @@ public class CEA extends JFrame {
         c.anchor = GridBagConstraints.LINE_END;
         c.weightx = 0.75;
         c.weighty = 0;
-        c.gridx = 1;
-        c.gridy = 2;
+        c.gridx = 3;
+        c.gridy = 1;
         c.gridwidth = 1;
         contentPane.add(textField_DEPT_CODE, c);
 
@@ -170,8 +170,8 @@ public class CEA extends JFrame {
         c.anchor = GridBagConstraints.LINE_START;
         c.weightx = 0.25;
         c.weighty = 0;
-        c.gridx = 0;
-        c.gridy = 4;
+        c.gridx = 2;
+        c.gridy = 3;
         c.gridwidth = 1;
         contentPane.add(label_START_DATE, c);
 
@@ -179,17 +179,17 @@ public class CEA extends JFrame {
         c.anchor = GridBagConstraints.LINE_END;
         c.weightx = 0.75;
         c.weighty = 0;
-        c.gridx = 1;
-        c.gridy = 4;
+        c.gridx = 3;
+        c.gridy = 3;
         c.gridwidth = 1;
         contentPane.add(textField_START_DATE, c);
 
-                c.fill = GridBagConstraints.HORIZONTAL;
+        c.fill = GridBagConstraints.HORIZONTAL;
         c.anchor = GridBagConstraints.LINE_START;
         c.weightx = 0.25;
         c.weighty = 0;
         c.gridx = 0;
-        c.gridy = 5;
+        c.gridy = 4;
         c.gridwidth = 1;
         contentPane.add(label_SECTION_ID, c);
 
@@ -198,7 +198,7 @@ public class CEA extends JFrame {
         c.weightx = 0.75;
         c.weighty = 0;
         c.gridx = 1;
-        c.gridy = 5;
+        c.gridy = 4;
         c.gridwidth = 1;
         contentPane.add(textField_SECTION_ID, c);
 
@@ -206,8 +206,8 @@ public class CEA extends JFrame {
         c.anchor = GridBagConstraints.LINE_START;
         c.weightx = 0.25;
         c.weighty = 0;
-        c.gridx = 0;
-        c.gridy = 6;
+        c.gridx = 2;
+        c.gridy = 4;
         c.gridwidth = 1;
         contentPane.add(label_SATISFACTION, c);
 
@@ -215,8 +215,8 @@ public class CEA extends JFrame {
         c.anchor = GridBagConstraints.LINE_END;
         c.weightx = 0.75;
         c.weighty = 0;
-        c.gridx = 1;
-        c.gridy = 6;
+        c.gridx = 3;
+        c.gridy = 4;
         c.gridwidth = 1;
         contentPane.add(textField_SATISFACTION, c);
 
@@ -225,7 +225,7 @@ public class CEA extends JFrame {
         c.weighty = 0;
         c.anchor = GridBagConstraints.LINE_START;
         c.gridx = 0;
-        c.gridy = 7;
+        c.gridy = 5;
         c.gridwidth = 1;
         contentPane.add(label_RANK_OF_INSTRUCTOR, c);
 
@@ -234,7 +234,7 @@ public class CEA extends JFrame {
         c.weightx = 0.75;
         c.weighty = 0;
         c.gridx = 1;
-        c.gridy = 7;
+        c.gridy = 5;
         c.gridwidth = 1;
         contentPane.add(textField_RANK_OF_INSTRUCTOR, c);
 
@@ -242,8 +242,8 @@ public class CEA extends JFrame {
         c.anchor = GridBagConstraints.LINE_START;
         c.weightx = 0.25;
         c.weighty = 0;
-        c.gridx = 0;
-        c.gridy = 8;
+        c.gridx = 2;
+        c.gridy = 5;
         c.gridwidth = 1;
         contentPane.add(label_START_INTEREST, c);
 
@@ -251,8 +251,8 @@ public class CEA extends JFrame {
         c.anchor = GridBagConstraints.LINE_END;
         c.weightx = 0.75;
         c.weighty = 0;
-        c.gridx = 1;
-        c.gridy = 8;
+        c.gridx = 3;
+        c.gridy = 5;
         c.gridwidth = 1;
         contentPane.add(textField_START_INTEREST, c);
 
@@ -261,7 +261,7 @@ public class CEA extends JFrame {
         c.weightx = 0.25;
         c.weighty = 0;
         c.gridx = 0;
-        c.gridy = 9;
+        c.gridy = 6;
         c.gridwidth = 1;
         contentPane.add(label_END_INTEREST, c);
 
@@ -270,7 +270,7 @@ public class CEA extends JFrame {
         c.weightx = 0.75;
         c.weighty = 0;
         c.gridx = 1;
-        c.gridy = 9;
+        c.gridy = 6;
         c.gridwidth = 1;
         contentPane.add(textField_END_INTEREST, c);
 
@@ -278,8 +278,8 @@ public class CEA extends JFrame {
         c.anchor = GridBagConstraints.LINE_START;
         c.weightx = 0.25;
         c.weighty = 0;
-        c.gridx = 0;
-        c.gridy = 10;
+        c.gridx = 2;
+        c.gridy = 6;
         c.gridwidth = 1;
         contentPane.add(label_SKILL, c);
 
@@ -287,8 +287,8 @@ public class CEA extends JFrame {
         c.anchor = GridBagConstraints.LINE_END;
         c.weightx = 0.75;
         c.weighty = 0;
-        c.gridx = 1;
-        c.gridy = 10;
+        c.gridx = 3;
+        c.gridy = 6;
         c.gridwidth = 1;
         contentPane.add(textField_SKILL, c);
 
@@ -297,7 +297,7 @@ public class CEA extends JFrame {
         c.weightx = 0.25;
         c.weighty = 0;
         c.gridx = 0;
-        c.gridy = 11;
+        c.gridy = 7;
         c.gridwidth = 1;
         contentPane.add(label_START_LEVEL, c);
 
@@ -306,7 +306,7 @@ public class CEA extends JFrame {
         c.weightx = 0.75;
         c.weighty = 0;
         c.gridx = 1;
-        c.gridy = 11;
+        c.gridy = 7;
         c.gridwidth = 1;
         contentPane.add(textField_START_LEVEL, c);
 
@@ -314,8 +314,8 @@ public class CEA extends JFrame {
         c.anchor = GridBagConstraints.LINE_START;
         c.weightx = 0.25;
         c.weighty = 0;
-        c.gridx = 0;
-        c.gridy = 12;
+        c.gridx = 2;
+        c.gridy = 7;
         c.gridwidth = 1;
         contentPane.add(label_END_LEVEL, c);
 
@@ -323,8 +323,8 @@ public class CEA extends JFrame {
         c.anchor = GridBagConstraints.LINE_END;
         c.weightx = 0.75;
         c.weighty = 0;
-        c.gridx = 1;
-        c.gridy = 12;
+        c.gridx = 3;
+        c.gridy = 7;
         c.gridwidth = 1;
         contentPane.add(textField_END_LEVEL, c);
 
@@ -333,8 +333,8 @@ public class CEA extends JFrame {
         c.weightx = 0.5;
         c.weighty = 0;
         c.gridx = 0;
-        c.gridy = 13;
-        c.gridwidth = 2;
+        c.gridy = 8;
+        c.gridwidth = 4;
         contentPane.add(button_ADD_EXPERIENCE, c);
 
         button_ADD_EXPERIENCE.addActionListener(new ActionListener() {
