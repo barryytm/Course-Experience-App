@@ -413,6 +413,31 @@ public class CEA extends JFrame {
             SQLError.show(ex);
         }
     }
+    
+    public static void printTable(Connection conn) throws SQLException {
+		Statement stmt = null;
+	    String query = "select e.dept_code, e.start_date, sec.end_date, time_of_day, enrol_num, e.username, e.grade, 2016-stu.birth_year, stu.birth_year, stu.birth_month, stu.gender, stu.birth_country, stu.enrol_year, stu.enrol_month, e.satisfaction, rank_of_instructor " +
+	    				"from experience as e, sections as sec, students as stu " +
+	    				"where e.dept_code = sec.dept_code and " +
+	    				"e.course_num = sec.course_num and " +
+	    				"e.username = stu.username";
+	   
+	    try {
+	        stmt = conn.createStatement();
+	        ResultSet rs = stmt.executeQuery(query);
+	        int cols = rs.getMetaData().getColumnCount();
+	        while (rs.next()) {
+	        	for (int i=0; i< cols; i++)
+	        		System.out.print (rs.getObject(i+1) + ",");
+	        	System.out.print("\n");	           
+	        }
+	    } catch (SQLException e ) {
+	    	SQLError.show(e);
+	       // JDBCTutorialUtilities.printSQLException(e);
+	    } finally {
+	        if (stmt != null) { stmt.close(); }
+	    }
+    }
 
     public static void main(String[] args) throws IOException, SQLException {
         if (args.length == 0) {
@@ -431,9 +456,11 @@ public class CEA extends JFrame {
             System.exit(1);
         }
         
-        CEA cea = new CEA(conn);
-
-        cea.pack();
-        cea.setVisible(true);
+        printTable(conn);
+	    
+//        CEA cea = new CEA(conn);
+//
+//        cea.pack();
+//        cea.setVisible(true);
     }
 }
