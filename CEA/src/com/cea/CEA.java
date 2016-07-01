@@ -209,7 +209,7 @@ public class CEA extends JFrame {
         c.gridx = 0;
         c.gridy = 6;
         c.gridwidth = 1;
-        contentPane.add(label_GRADE, c);
+        contentPane.add(label_SATISFACTION, c);
 
         c.fill = GridBagConstraints.HORIZONTAL;
         c.anchor = GridBagConstraints.LINE_END;
@@ -218,24 +218,6 @@ public class CEA extends JFrame {
         c.gridx = 1;
         c.gridy = 6;
         c.gridwidth = 1;
-        contentPane.add(textField_GRADE, c);
-
-        c.fill = GridBagConstraints.HORIZONTAL;
-        c.anchor = GridBagConstraints.LINE_START;
-        c.weightx = 0.25;
-        c.weighty = 0;
-        c.gridx = 0;
-        c.gridy = 7;
-        c.gridwidth = 1;
-        contentPane.add(label_SATISFACTION, c);
-
-        c.fill = GridBagConstraints.HORIZONTAL;
-        c.anchor = GridBagConstraints.LINE_END;
-        c.weightx = 0.75;
-        c.weighty = 0;
-        c.gridx = 1;
-        c.gridy = 7;
-        c.gridwidth = 1;
         contentPane.add(textField_SATISFACTION, c);
 
         c.fill = GridBagConstraints.HORIZONTAL;
@@ -243,7 +225,7 @@ public class CEA extends JFrame {
         c.weighty = 0;
         c.anchor = GridBagConstraints.LINE_START;
         c.gridx = 0;
-        c.gridy = 8;
+        c.gridy = 7;
         c.gridwidth = 1;
         contentPane.add(label_RANK_OF_INSTRUCTOR, c);
 
@@ -252,7 +234,7 @@ public class CEA extends JFrame {
         c.weightx = 0.75;
         c.weighty = 0;
         c.gridx = 1;
-        c.gridy = 8;
+        c.gridy = 7;
         c.gridwidth = 1;
         contentPane.add(textField_RANK_OF_INSTRUCTOR, c);
 
@@ -261,7 +243,7 @@ public class CEA extends JFrame {
         c.weightx = 0.25;
         c.weighty = 0;
         c.gridx = 0;
-        c.gridy = 9;
+        c.gridy = 8;
         c.gridwidth = 1;
         contentPane.add(label_START_INTEREST, c);
 
@@ -270,7 +252,7 @@ public class CEA extends JFrame {
         c.weightx = 0.75;
         c.weighty = 0;
         c.gridx = 1;
-        c.gridy = 9;
+        c.gridy = 8;
         c.gridwidth = 1;
         contentPane.add(textField_START_INTEREST, c);
 
@@ -279,7 +261,7 @@ public class CEA extends JFrame {
         c.weightx = 0.25;
         c.weighty = 0;
         c.gridx = 0;
-        c.gridy = 10;
+        c.gridy = 9;
         c.gridwidth = 1;
         contentPane.add(label_END_INTEREST, c);
 
@@ -288,7 +270,7 @@ public class CEA extends JFrame {
         c.weightx = 0.75;
         c.weighty = 0;
         c.gridx = 1;
-        c.gridy = 10;
+        c.gridy = 9;
         c.gridwidth = 1;
         contentPane.add(textField_END_INTEREST, c);
 
@@ -297,7 +279,7 @@ public class CEA extends JFrame {
         c.weightx = 0.25;
         c.weighty = 0;
         c.gridx = 0;
-        c.gridy = 11;
+        c.gridy = 10;
         c.gridwidth = 1;
         contentPane.add(label_SKILL, c);
 
@@ -306,7 +288,7 @@ public class CEA extends JFrame {
         c.weightx = 0.75;
         c.weighty = 0;
         c.gridx = 1;
-        c.gridy = 11;
+        c.gridy = 10;
         c.gridwidth = 1;
         contentPane.add(textField_SKILL, c);
 
@@ -315,7 +297,7 @@ public class CEA extends JFrame {
         c.weightx = 0.25;
         c.weighty = 0;
         c.gridx = 0;
-        c.gridy = 12;
+        c.gridy = 11;
         c.gridwidth = 1;
         contentPane.add(label_START_LEVEL, c);
 
@@ -324,7 +306,7 @@ public class CEA extends JFrame {
         c.weightx = 0.75;
         c.weighty = 0;
         c.gridx = 1;
-        c.gridy = 12;
+        c.gridy = 11;
         c.gridwidth = 1;
         contentPane.add(textField_START_LEVEL, c);
 
@@ -333,7 +315,7 @@ public class CEA extends JFrame {
         c.weightx = 0.25;
         c.weighty = 0;
         c.gridx = 0;
-        c.gridy = 13;
+        c.gridy = 12;
         c.gridwidth = 1;
         contentPane.add(label_END_LEVEL, c);
 
@@ -342,7 +324,7 @@ public class CEA extends JFrame {
         c.weightx = 0.75;
         c.weighty = 0;
         c.gridx = 1;
-        c.gridy = 13;
+        c.gridy = 12;
         c.gridwidth = 1;
         contentPane.add(textField_END_LEVEL, c);
 
@@ -351,7 +333,7 @@ public class CEA extends JFrame {
         c.weightx = 0.5;
         c.weighty = 0;
         c.gridx = 0;
-        c.gridy = 14;
+        c.gridy = 13;
         c.gridwidth = 2;
         contentPane.add(button_ADD_EXPERIENCE, c);
 

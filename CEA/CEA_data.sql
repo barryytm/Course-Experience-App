@@ -116,14 +116,14 @@ INSERT INTO sections VALUES ('CHM', 139, '2015-01-01', 01, '2015-04-30', 'mornin
 INSERT INTO sections VALUES ('PHY', 132, '2015-01-01', 01, '2015-04-30', 'morning', 'UNKNOWN', 1200);
 INSERT INTO sections VALUES ('MAT', 136, '2015-01-01', 01, '2015-04-30', 'morning', 'UNKNOWN', 1200);
 
-INSERT INTO experience VALUES ('MAT', 135, '2014-12-31', 1200, 'yungtsz', 90, 3, 4, 2, 4);
-INSERT INTO experience VALUES ('CHM', 139, '2014-12-31', 1200, 'yungtsz', 75, 3, 4, 2, 5);
-INSERT INTO experience VALUES ('PHY', 151, '2014-12-31', 1200, 'yungtsz', 81, 4, 4, 2, 4);
-INSERT INTO experience VALUES ('BIO', 130, '2015-01-01', 1200, 'jiananya', 87, 3, 4, 4, 1);
-INSERT INTO experience VALUES ('MAT', 136, '2015-01-01', 1200, 'jiananya', 77, 5, 4, 3, 4);
+INSERT INTO experience VALUES ('MAT', 135, '2014-12-31', 1200, 'yungtsz', 90, NULL, NULL, NULL, NULL);
+INSERT INTO experience VALUES ('CHM', 139, '2014-12-31', 1200, 'yungtsz', 75, NULL, NULL, NULL, NULL);
+INSERT INTO experience VALUES ('PHY', 151, '2014-12-31', 1200, 'yungtsz', 81, NULL, NULL, NULL, NULL);
+INSERT INTO experience VALUES ('BIO', 130, '2015-01-01', 1200, 'jiananya', 87, NULL, NULL, NULL, NULL);
+INSERT INTO experience VALUES ('MAT', 136, '2015-01-01', 1200, 'jiananya', 77, NULL, NULL, NULL, NULL);
 
-INSERT INTO course_skills VALUES ('MAT', 135, '2014-12-31', 1200, 'yungtsz', 'chain rule', 2, 4);
-INSERT INTO course_skills VALUES ('CHM', 139, '2014-12-31', 1200, 'yungtsz', 'laws of thermodynamics', 1, 4);
-INSERT INTO course_skills VALUES ('PHY', 151, '2014-12-31', 1200, 'yungtsz', 'law of conservation of energy', 3, 5);
-INSERT INTO course_skills VALUES ('BIO', 130, '2015-01-01', 1200, 'jiananya', 'cell and systems', 1, 3);
-INSERT INTO course_skills VALUES ('MAT', 136, '2015-01-01', 1200, 'jiananya', 'integration', 4, 5);
+INSERT INTO course_skills VALUES ('MAT', 135, '2014-12-31', 1200, 'yungtsz', 'chain rule', NULL, NULL);
+INSERT INTO course_skills VALUES ('CHM', 139, '2014-12-31', 1200, 'yungtsz', 'laws of thermodynamics', NULL, NULL);
+INSERT INTO course_skills VALUES ('PHY', 151, '2014-12-31', 1200, 'yungtsz', 'law of conservation of energy', NULL, NULL);
+INSERT INTO course_skills VALUES ('BIO', 130, '2015-01-01', 1200, 'jiananya', 'cell and systems', NULL, NULL);
+INSERT INTO course_skills VALUES ('MAT', 136, '2015-01-01', 1200, 'jiananya', 'integration', NULL, NULL);
