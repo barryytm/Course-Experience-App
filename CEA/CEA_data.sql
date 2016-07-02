@@ -22,15 +22,10 @@ INSERT INTO courses VALUES ('CSC', 120, 'science');
 INSERT INTO courses VALUES ('MAT', 221, 'science');
 INSERT INTO courses VALUES ('MAT', 223, 'science');
 INSERT INTO courses VALUES ('MAT', 240, 'science');
-INSERT INTO courses VALUES ('BIO', 230, 'science');
 INSERT INTO courses VALUES ('CSC', 148, 'science');
 INSERT INTO courses VALUES ('CSC', 165, 'science');
-INSERT INTO courses VALUES ('BCH', 210, 'science');
-INSERT INTO courses VALUES ('BCH', 311, 'science');
 INSERT INTO courses VALUES ('CSC', 207, 'science');
 INSERT INTO courses VALUES ('CSC', 209, 'science');
-INSERT INTO courses VALUES ('CSC', 236, 'science');
-INSERT INTO courses VALUES ('CSC', 263, 'science');
 INSERT INTO courses VALUES ('CSC', 258, 'science');
 INSERT INTO courses VALUES ('STA', 247, 'science');
 INSERT INTO courses VALUES ('PHY', 151, 'science');
@@ -50,6 +45,8 @@ INSERT INTO instructors VALUES('William', 35, 'male', 'freelancer');
 INSERT INTO instructors VALUES('Young', 68, 'female', 'faculty');
 INSERT INTO instructors VALUES('Lee', 77, 'male', 'faculty');
 INSERT INTO instructors VALUES('Phill', 46, 'female', 'freelancer');
+INSERT INTO instructors VALUES('Dwight', 46, 'male', 'freelancer');
+
 
 INSERT INTO instructor_expertise VALUES('Wright', 'AI');
 INSERT INTO instructor_expertise VALUES('Wright', 'Database');
@@ -59,6 +56,9 @@ INSERT INTO instructor_expertise VALUES('Truman', 'Latin');
 INSERT INTO instructor_expertise VALUES('Young', 'Graph Theory');
 INSERT INTO instructor_expertise VALUES('Lee', 'physical chemistry');
 INSERT INTO instructor_expertise VALUES('William', 'toxicology');
+INSERT INTO instructor_expertise VALUES('Phill', 'relativity');
+INSERT INTO instructor_expertise VALUES('Dwight', 'quantum physics');
+
 
 INSERT INTO faculty VALUES('Wright', 1998, 'teaching');
 INSERT INTO faculty VALUES('Ford', 1999, 'teaching');
@@ -74,8 +74,10 @@ INSERT INTO research_interests VALUES('Ford', 'carbon dating');
 INSERT INTO research_interests VALUES('Truman', 'latin Translation');
 INSERT INTO research_interests VALUES('William', 'aquatic toxicology');
 INSERT INTO research_interests VALUES('Young', 'graph calculus');
-INSERT INTO research_interests VALUES('Lee', 'relativity');
+INSERT INTO research_interests VALUES('Lee', 'chemical reaction');
 INSERT INTO research_interests VALUES('Phill', 'relativity');
+INSERT INTO research_interests VALUES('Dwight', 'quantum mechanics');
+
 
 INSERT INTO exclusions VALUES('CSC', 108, 'CSC', 120);
 INSERT INTO exclusions VALUES('MAT', 221, 'MAT', 223);
@@ -106,15 +108,13 @@ INSERT INTO companies VALUES('North America Corporation');
 INSERT INTO company_expertise VALUES('A&B ltd', 'energy');
 INSERT INTO company_expertise VALUES('North America Corporation', 'mining');
 
-INSERT INTO sections VALUES ('BIO', 120, '2014-09-01', 01, '2014-12-31', 'morning', 'UNKNOWN', 1200);
-INSERT INTO sections VALUES ('CHM', 138, '2014-09-01', 01, '2014-12-31', 'morning', 'UNKNOWN', 1200);
-INSERT INTO sections VALUES ('PHY', 151, '2014-09-01', 01, '2014-12-31', 'morning', 'UNKNOWN', 1200);
-INSERT INTO sections VALUES ('PHY', 131, '2014-09-01', 01, '2014-12-31', 'morning', 'UNKNOWN', 1200);
-INSERT INTO sections VALUES ('MAT', 135, '2014-09-01', 01, '2014-12-31', 'morning', 'UNKNOWN', 1200);
-INSERT INTO sections VALUES ('BIO', 130, '2015-01-01', 01, '2015-04-30', 'morning', 'UNKNOWN', 1200);
-INSERT INTO sections VALUES ('CHM', 139, '2015-01-01', 01, '2015-04-30', 'morning', 'UNKNOWN', 1200);
-INSERT INTO sections VALUES ('PHY', 132, '2015-01-01', 01, '2015-04-30', 'morning', 'UNKNOWN', 1200);
-INSERT INTO sections VALUES ('MAT', 136, '2015-01-01', 01, '2015-04-30', 'morning', 'UNKNOWN', 1200);
+INSERT INTO sections VALUES ('BIO', 120, '2014-09-01', 01, '2014-12-31', 'morning', 'William', 1200);
+INSERT INTO sections VALUES ('PHY', 151, '2014-09-01', 01, '2014-12-31', 'morning', 'Phill', 1200);
+INSERT INTO sections VALUES ('MAT', 135, '2014-09-01', 01, '2014-12-31', 'morning', 'Young', 1200);
+INSERT INTO sections VALUES ('BIO', 130, '2015-01-01', 01, '2015-04-30', 'morning', 'William', 1200);
+INSERT INTO sections VALUES ('CHM', 139, '2015-01-01', 01, '2015-04-30', 'morning', 'Lee', 1200);
+INSERT INTO sections VALUES ('PHY', 151, '2015-01-01', 01, '2015-04-30', 'morning', 'Dwight', 1200);
+INSERT INTO sections VALUES ('MAT', 136, '2015-01-01', 01, '2015-04-30', 'morning', 'Young', 1200);
 
 INSERT INTO experience VALUES ('MAT', 135, '2014-12-31', 01, 'yungtsz', 90, NULL, NULL, NULL, NULL);
 INSERT INTO experience VALUES ('CHM', 139, '2014-12-31', 01, 'yungtsz', 75, NULL, NULL, NULL, NULL);
