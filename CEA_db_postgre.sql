@@ -139,11 +139,12 @@ CREATE TABLE employment_skill (
     username varchar(30),
     company_name varchar(30),
     title varchar(30),
+    em_skill varchar(30),
     acquired_or_used au_type,
     level four_level,
     FOREIGN KEY (username, company_name, title)
         REFERENCES employments (username, company_name, title),
-    PRIMARY KEY (username, company_name, title)
+    PRIMARY KEY (username, company_name, title, em_skill)
 );
 
 DROP TABLE IF EXISTS sections CASCADE;
