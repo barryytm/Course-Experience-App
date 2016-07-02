@@ -88,15 +88,6 @@ CREATE TABLE exclusions (
     PRIMARY KEY (dept_code, course_num, ex_dept, ex_course)
 );
 
-DROP TABLE IF EXISTS course_topics CASCADE;
-CREATE TABLE course_topics (
-    dept_code char(3),
-    course_num course_digit,
-    topic varchar(30),
-    FOREIGN KEY (dept_code, course_num)
-        REFERENCES courses (dept_code, num) ON UPDATE CASCADE ON DELETE CASCADE,
-    PRIMARY KEY (dept_code, course_num, topic)
-);
 
 DROP TABLE IF EXISTS students CASCADE;
 CREATE TABLE students (
@@ -174,8 +165,6 @@ CREATE TABLE experience (
     grade int CONSTRAINT check_grade CHECK (grade BETWEEN 0 AND 100),
     satisfaction five_level,
     rank_of_instructor five_level,
-    start_interest five_level,
-    end_interest five_level,
     FOREIGN KEY (dept_code, course_num, start_date, section_id)
         REFERENCES sections (dept_code, course_num, start_date, section_id)
         ON UPDATE CASCADE,
@@ -196,4 +185,20 @@ CREATE TABLE course_skills (
         REFERENCES experience (dept_code, course_num, start_date, section_id, username)
         ON UPDATE CASCADE,
     PRIMARY KEY (dept_code, course_num, start_date, section_id, username, skill)
+);
+
+DROP TABLE IF EXISTS course_topics CASCADE;
+CREATE TABLE course_topics (
+    dept_code char(3),
+    course_num course_digit,
+    start_date date,
+    section_id int,
+    unsername varchar(30),
+    topic varchar(30),
+    start_interest five_level,
+    end_interest five_level,
+    FOREIGN KEY (dept_code, course_num, start_date, section_id, unsername)
+        REFERENCES experience (dept_code, course_num, start_date, section_id, username) 
+        ON UPDATE CASCADE,
+    PRIMARY KEY (dept_code, course_num, start_date, section_id, username, topic)
 );

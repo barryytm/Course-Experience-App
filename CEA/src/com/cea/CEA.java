@@ -417,20 +417,27 @@ public class CEA extends JFrame {
     public static void printTable(Connection conn) throws SQLException {
 		Statement stmt = null;
 	    String query = "select e.dept_code, e.start_date, sec.end_date, time_of_day, enrol_num, " +
-	    		 		"e.username, e.grade, 2016-stu.birth_year, stu.birth_year || ' ' || stu.birth_month, stu.gender, stu.birth_country, stu.enrol_year, stu.enrol_month, e.satisfaction, rank_of_instructor " +
+	    		 		"e.username, e.grade, 2016-stu.birth_year, stu.birth_year || ' ' || stu.birth_month, stu.gender, stu.birth_country, sl, stu.enrol_year || ' ' || stu.enrol_month, e.satisfaction, rank_of_instructor, sse " +
 	    				"from experience as e, students as stu," +
+	    		 		
 	    					"(select dept_code, course_num, start_date, section_id, end_date, time_of_day, enrol_num," +
 	    					"group_concat(instructor_name, '|') as ins " +
 	    					"from sections as sec " +
-	    					"group by dept_code, course_num, start_date, section_id) as sec " +
+	    					"group by dept_code, course_num, start_date, section_id) as sec, " +
+	    					
+	    					"(select username, company_name, title, " +
+	    					"group_concat(em_skill || '-' || level, '|') as sl " +
+	    					"from employment_skills as eskills " +
+	    					"group by username) as employment_skills, " +
+	    					
+	    					"(select dept_code, course_num, start_date, section_id, username, " +
+	    					"group_concat(skill || '-' || start_level || '-' || end_level, '|') as sse " +
+	    					"from course_skills as cs " +
+	    					"group by dept_code, course_num, start_date, section_id) as course_skills " +
+	    					
 	    				"where e.dept_code = sec.dept_code and " +
 	    				"e.course_num = sec.course_num and " +
 	    				"e.username = stu.username";
-		
-//		String query = "select dept_code, course_num, start_date, section_id, end_date, time_of_day, enrol_num," +
-//	    					"group_concat(instructor_name, '|') as ins " +
-//	    					"from sections as sec " +
-//	    					"group by dept_code, course_num, start_date, section_id";
 	   
 	    try {
 	        stmt = conn.createStatement();

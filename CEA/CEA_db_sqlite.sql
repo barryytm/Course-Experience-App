@@ -46,7 +46,7 @@ CREATE TABLE departments (
 DROP TABLE IF EXISTS courses;
 CREATE TABLE courses (
     dept_code text,
-    num INTEGER CONSTRAINT course_num_check CHECK (num >= 0 AND num <= 499),
+    num integer CONSTRAINT course_num_check CHECK (num >= 0 AND num <= 499),
     area text CONSTRAINT area_check CHECK (
         area = 'science' OR
         area = 'humanity' OR
@@ -59,7 +59,7 @@ CREATE TABLE courses (
 DROP TABLE IF EXISTS prerequisites;
 CREATE TABLE prerequisites (
     dept_code text,
-    course_num INTEGER CONSTRAINT course_num_check CHECK (course_num >= 0 AND course_num <= 499),
+    course_num integer CONSTRAINT course_num_check CHECK (course_num >= 0 AND course_num <= 499),
     pre_dept text,
     pre_course integer,
     FOREIGN KEY (dept_code, course_num)
@@ -72,7 +72,7 @@ CREATE TABLE prerequisites (
 DROP TABLE IF EXISTS exclusions;
 CREATE TABLE exclusions (
     dept_code text,
-    course_num INTEGER CONSTRAINT course_num_check CHECK (course_num >= 0 AND course_num <= 499),
+    course_num integer CONSTRAINT course_num_check CHECK (course_num >= 0 AND course_num <= 499),
     ex_dept text,
     ex_course integer,
     FOREIGN KEY (dept_code, course_num)
@@ -80,16 +80,6 @@ CREATE TABLE exclusions (
     FOREIGN KEY (ex_dept, ex_course)
         REFERENCES courses (dept_code, num) ON UPDATE CASCADE ON DELETE CASCADE,
     PRIMARY KEY (dept_code, course_num, ex_dept, ex_course)
-);
-
-DROP TABLE IF EXISTS course_topics;
-CREATE TABLE course_topics (
-    dept_code text,
-    course_num INTEGER CONSTRAINT course_num_check CHECK (course_num >= 0 AND course_num <= 499),
-    topic text,
-    FOREIGN KEY (dept_code, course_num)
-        REFERENCES courses (dept_code, num) ON UPDATE CASCADE ON DELETE CASCADE,
-    PRIMARY KEY (dept_code, course_num, topic)
 );
 
 DROP TABLE IF EXISTS students;
@@ -101,10 +91,10 @@ CREATE TABLE students (
         gender = 'other'
     ),
     birth_year integer,
-    birth_month INTEGER CHECK (birth_month >= 1 AND birth_month <= 12),
+    birth_month integer CHECK (birth_month >= 1 AND birth_month <= 12),
     birth_country text,
     enrol_year integer,
-    enrol_month INTEGER CHECK (enrol_month >= 1 AND enrol_month <= 12),
+    enrol_month integer CHECK (enrol_month >= 1 AND enrol_month <= 12),
     CONSTRAINT check_birth CHECK (birth_year < enrol_year)
 );
 
@@ -142,7 +132,7 @@ CREATE TABLE employment_skills (
         acquired_or_used = 'acquired' OR
         acquired_or_used = 'used'
     ),
-    level INTEGER CHECK (level <= 5 AND level >= 2),
+    level integer CHECK (level <= 5 AND level >= 2),
     FOREIGN KEY (username, company_name, title)
         REFERENCES employments (username, company_name, title),
     PRIMARY KEY (username, company_name, title, em_skill)
@@ -151,7 +141,7 @@ CREATE TABLE employment_skills (
 DROP TABLE IF EXISTS sections;
 CREATE TABLE sections (
     dept_code text,
-    course_num INTEGER CONSTRAINT course_num_check CHECK (course_num >= 0 AND course_num <= 499),
+    course_num integer CONSTRAINT course_num_check CHECK (course_num >= 0 AND course_num <= 499),
     start_date date,
     section_id integer,
     end_date date,
@@ -172,17 +162,15 @@ CREATE TABLE sections (
 DROP TABLE IF EXISTS experience;
 CREATE TABLE experience (
     dept_code text,
-    course_num INTEGER CONSTRAINT course_num_check CHECK (course_num >= 0 AND course_num <= 499),
+    course_num integer CONSTRAINT course_num_check CHECK (course_num >= 0 AND course_num <= 499),
     start_date date,
     section_id integer,
     username text REFERENCES students ON UPDATE CASCADE,
     grade integer CONSTRAINT check_grade CHECK (grade BETWEEN 0 AND 100),
-    satisfaction INTEGER CHECK (satisfaction <= 5 AND satisfaction >= 1),
-    rank_of_instructor INTEGER CHECK (rank_of_instructor <= 5 AND
+    satisfaction integer CHECK (satisfaction <= 5 AND satisfaction >= 1),
+    rank_of_instructor integer CHECK (rank_of_instructor <= 5 AND
         rank_of_instructor >= 1
     ),
-    start_interest INTEGER CHECK (start_interest <= 5 AND start_interest >= 1),
-    end_interest INTEGER CHECK (end_interest <= 5 AND end_interest >= 1),
     FOREIGN KEY (dept_code, course_num, start_date, section_id)
         REFERENCES sections (dept_code, course_num, start_date, section_id)
         ON UPDATE CASCADE,
@@ -192,15 +180,31 @@ CREATE TABLE experience (
 DROP TABLE IF EXISTS course_skills;
 CREATE TABLE course_skills (
     dept_code text,
-    course_num INTEGER CONSTRAINT course_num_check CHECK (course_num >= 0 AND course_num <= 499),
+    course_num integer CONSTRAINT course_num_check CHECK (course_num >= 0 AND course_num <= 499),
     start_date date,
     section_id integer,
     username text,
     skill text,
-    start_level INTEGER CHECK (start_level <= 5 AND start_level >= 1),
-    end_level INTEGER CHECK (end_level <= 5 AND end_level >= 1),
+    start_level integer CHECK (start_level <= 5 AND start_level >= 1),
+    end_level integer CHECK (end_level <= 5 AND end_level >= 1),
     FOREIGN KEY (dept_code, course_num, start_date, section_id, username)
         REFERENCES experience (dept_code, course_num, start_date, section_id, username)
         ON UPDATE CASCADE,
     PRIMARY KEY (dept_code, course_num, start_date, section_id, username, skill)
+);
+
+DROP TABLE IF EXISTS course_topics;
+CREATE TABLE course_topics (
+    dept_code text,
+    course_num integer CONSTRAINT course_num_check CHECK (course_num >= 0 AND course_num <= 499),
+    start_date date,
+    section_id integer,
+    username text,
+    topic text,
+    start_interest integer CHECK (start_interest <= 5 AND start_interest >= 1),
+    end_interest integer CHECK (end_interest <= 5 AND end_interest >= 1),
+    FOREIGN KEY (dept_code, course_num, start_date, section_id, username)
+        REFERENCES experience (dept_code, course_num, start_date, section_id, username)
+        ON UPDATE CASCADE,
+    PRIMARY KEY (dept_code, course_num, start_date, section_id, username, topic)
 );
