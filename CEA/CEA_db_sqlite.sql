@@ -164,7 +164,7 @@ CREATE TABLE sections (
     enrol_num integer,
     FOREIGN KEY (dept_code, course_num)
         REFERENCES courses (dept_code, num) ON UPDATE CASCADE,
-    PRIMARY KEY (dept_Code, course_num, start_date, section_id),
+    PRIMARY KEY (dept_Code, course_num, start_date, section_id, instructor_name),
     CONSTRAINT check_section CHECK (start_date < end_date)
 );
 
