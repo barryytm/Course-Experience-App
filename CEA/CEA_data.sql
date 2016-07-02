@@ -108,12 +108,12 @@ INSERT INTO companies VALUES('North America Corporation');
 INSERT INTO company_expertise VALUES('A&B ltd', 'energy');
 INSERT INTO company_expertise VALUES('North America Corporation', 'mining');
 
-INSERT INTO sections VALUES ('BIO', 120, '2014-09-01', 01, '2014-12-31', 'morning', 'William', 1200);
-INSERT INTO sections VALUES ('PHY', 151, '2014-09-01', 01, '2014-12-31', 'morning', 'Phill', 1200);
-INSERT INTO sections VALUES ('MAT', 135, '2014-09-01', 01, '2014-12-31', 'morning', 'Young', 1200);
 INSERT INTO sections VALUES ('BIO', 130, '2015-01-01', 01, '2015-04-30', 'morning', 'William', 1200);
+INSERT INTO sections VALUES ('PHY', 151, '2014-09-01', 01, '2014-12-31', 'morning', 'Phill', 1200);
+INSERT INTO sections VALUES ('MAT', 135, '2014-09-01', 01, '2014-12-31', 'morning', 'Phill', 1200);
+INSERT INTO sections VALUES ('BIO', 130, '2015-01-01', 01, '2015-04-30', 'morning', 'Young', 1200);
 INSERT INTO sections VALUES ('CHM', 139, '2015-01-01', 01, '2015-04-30', 'morning', 'Lee', 1200);
-INSERT INTO sections VALUES ('PHY', 151, '2015-01-01', 01, '2015-04-30', 'morning', 'Dwight', 1200);
+INSERT INTO sections VALUES ('PHY', 151, '2014-09-01', 01, '2014-12-31', 'morning', 'Dwight', 1200);
 INSERT INTO sections VALUES ('MAT', 136, '2015-01-01', 01, '2015-04-30', 'morning', 'Young', 1200);
 
 INSERT INTO experience VALUES ('MAT', 135, '2014-12-31', 01, 'yungtsz', 90, NULL, NULL, NULL, NULL);
