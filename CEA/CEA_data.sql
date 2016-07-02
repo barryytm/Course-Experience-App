@@ -92,9 +92,6 @@ INSERT INTO prerequisites VALUES('CSC', 343, 'CSC', 207);
 INSERT INTO prerequisites VALUES('CSC', 369, 'CSC', 209);
 INSERT INTO prerequisites VALUES('CSC', 369, 'CSC', 258);
 
-INSERT INTO course_skills VALUES('CSC', 343, '2015-05-30', 01, 'jiananya', 'postgreSQL', 2, 5);
-INSERT INTO course_skills VALUES('CSC', 207, '2015-09-10', 01, 'yungtsz', 'java', 1, 4);
-
 INSERT INTO course_topics VALUES('CSC', 343, 'database');
 INSERT INTO course_topics VALUES('CSC', 207, 'Patterns');
 INSERT INTO course_topics VALUES('PHY', 151, 'relativity');
@@ -105,8 +102,16 @@ INSERT INTO course_topics VALUES('CSC', 148, 'object oriented programming');
 INSERT INTO companies VALUES('A&B ltd');
 INSERT INTO companies VALUES('North America Corporation');
 
-INSERT INTO company_expertise VALUES('A&B ltd', 'energy');
+INSERT INTO company_expertise VALUES('A&B Ltd', 'energy');
 INSERT INTO company_expertise VALUES('North America Corporation', 'mining');
+
+
+INSERT INTO employments VALUES('jiananya', 'A&B Ltd', 'software engineer', '2015-01-01', '2015-04-31');
+INSERT INTO employments VALUES('yungtsz', 'North America Corporation', 'software engineer', '2015-01-01', '2015-04-31');
+
+INSERT INTO employment_skills VALUES('jiananya', 'A&B Ltd', 'software engineer', 'C', 'used', 4);
+INSERT INTO employment_skills VALUES('jiananya', 'A&B Ltd', 'software engineer', 'C++', 'used', 3);
+INSERT INTO employment_skills VALUES('yungtsz', 'North America Corporation', 'software engineer', 'C++', 'used', 4);
 
 INSERT INTO sections VALUES ('BIO', 130, '2015-01-01', 01, '2015-04-30', 'morning', 'William', 1200);
 INSERT INTO sections VALUES ('PHY', 151, '2014-09-01', 01, '2014-12-31', 'morning', 'Phill', 1200);

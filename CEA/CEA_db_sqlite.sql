@@ -132,11 +132,12 @@ CREATE TABLE employments (
     CONSTRAINT check_work CHECK (start_date < end_date)
 );
 
-DROP TABLE IF EXISTS employment_skill;
-CREATE TABLE employment_skill (
+DROP TABLE IF EXISTS employment_skills;
+CREATE TABLE employment_skills (
     username text,
     company_name text,
     title text,
+    em_skill text,
     acquired_or_used text CONSTRAINT au_check CHECK (
         acquired_or_used = 'acquired' OR
         acquired_or_used = 'used'
@@ -144,7 +145,7 @@ CREATE TABLE employment_skill (
     level INTEGER CHECK (level <= 5 AND level >= 2),
     FOREIGN KEY (username, company_name, title)
         REFERENCES employments (username, company_name, title),
-    PRIMARY KEY (username, company_name, title)
+    PRIMARY KEY (username, company_name, title, em_skill)
 );
 
 DROP TABLE IF EXISTS sections;
