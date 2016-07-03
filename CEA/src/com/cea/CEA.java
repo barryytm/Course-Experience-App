@@ -528,9 +528,9 @@ public class CEA extends JFrame {
         
         printTable(conn);
 	    
-//        CEA cea = new CEA(conn);
-//
-//        cea.pack();
-//        cea.setVisible(true);
+        CEA cea = new CEA(conn);
+
+        cea.pack();
+        cea.setVisible(true);
     }
 }
