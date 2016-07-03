@@ -441,11 +441,9 @@ public class CEA extends JFrame {
     
     public static void printTable(Connection conn) throws SQLException {
 		Statement stmt = null;
-//	    String query = "select e.dept_code || e.course_num, e.start_date, sec.end_date, time_of_day, enrol_num, ins, " +
-//	    		 		"e.username, e.grade, 2016-stu.birth_year, stu.birth_year || ' ' || stu.birth_month, stu.gender, stu.birth_country, sl, stu.enrol_year || ' ' || stu.enrol_month, e.satisfaction, rank_of_instructor, sse, tse " +
-//	    				"from " +
-	    		 		
-	    				String query = "select * from " +
+	    String query = "select e.dept_code || e.course_num, e.start_date, sec.end_date, time_of_day, enrol_num, ins, " +
+	    		 		"e.username, e.grade, 2016-stu.birth_year, stu.birth_year || ' ' || stu.birth_month, stu.gender, stu.birth_country, sl, stu.enrol_year || ' ' || stu.enrol_month, e.satisfaction, rank_of_instructor, sse, tse " +
+	    				"from " +
 	    		 		
 	    					"(select dept_code, course_num, start_date, section_id, end_date, time_of_day, enrol_num," +
 	    					"group_concat(instructor_name, '|') as ins " +
@@ -453,22 +451,22 @@ public class CEA extends JFrame {
 	    					"group by dept_code, course_num, start_date, section_id) as sec natural join " +
 	    					
 							"students as stu natural join " +
-	    					"experience as e "; 
-//	    					 
-//	    					"(select dept_code, course_num, start_date, section_id, username, " +
-//	    					"group_concat(skill || '-' || start_level || '-' || end_level, '|') as sse " +
-//	    					"from course_skills as cs " +
-//	    					"group by dept_code, course_num, start_date, section_id) as css natural join " +
-//	    					
-//	    					"(select dept_code, course_num, start_date, section_id, username, " +
-//	    					"group_concat(topic || '-' || start_interest || '-' || end_interest, '|') as tse " +
-//	    					"from course_topics as ci " +
-//	    					"group by dept_code, course_num, start_date, section_id) as cts natural join " +
-//	    					
-//	    					"(select username, company_name, title, " +
-//	    					"group_concat(em_skill || '-' || level, '|') as sl " +
-//	    					"from employment_skills as eskills " +
-//	    					"group by username) as eks ";
+	    					"experience as e natural join " +
+	    					 
+	    					"(select dept_code, course_num, start_date, section_id, username, " +
+	    					"group_concat(skill || '-' || start_level || '-' || end_level, '|') as sse " +
+	    					"from course_skills as cs " +
+	    					"group by dept_code, course_num, start_date, section_id) as css natural join " +
+	    					
+	    					"(select dept_code, course_num, start_date, section_id, username, " +
+	    					"group_concat(topic || '-' || start_interest || '-' || end_interest, '|') as tse " +
+	    					"from course_topics as ci " +
+	    					"group by dept_code, course_num, start_date, section_id) as cts natural join " +
+	    					
+	    					"(select username, company_name, title, " +
+	    					"group_concat(em_skill || '-' || level, '|') as sl " +
+	    					"from employment_skills as eskills " +
+	    					"group by username) as eks ";
 	    					
 	    try {
 	        stmt = conn.createStatement();
