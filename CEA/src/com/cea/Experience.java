@@ -12,6 +12,7 @@ public class Experience {
     private String grade;
     private String satisfaction;
     private String rankOfInstructor;
+    private String topic;
     private String startInterest;
     private String endInterest;
     private String skill;
@@ -20,9 +21,7 @@ public class Experience {
 
     private String updateSQL1 = "UPDATE experience " +
                                 "SET satisfaction = ?," +
-                                "rank_of_instructor = ?," +
-                                "start_interest = ?," +
-                                "end_interest = ? " +
+                                "rank_of_instructor = ? " +
                                 "WHERE username = ? AND " +
                                 "dept_code = ? AND " +
                                 "course_num = ? AND " +
@@ -38,6 +37,16 @@ public class Experience {
                                 "start_date = ? AND " +
                                 "section_id = ? AND " +
                                 "skill = ?";
+    
+    private static String updateSQL3 = "UPDATE course_topics " +
+    								   "SET start_interest = ?," +
+    								   "end_interest = ? " +
+    								   "WHERE username = ? AND " +
+    	                               "dept_code = ? AND " +
+    	                               "course_num = ? AND " +
+    	                               "start_date = ? AND " +
+    	                               "section_id = ? AND " +
+    	                               "topic = ?";
 
     private static String selectSQL = "SELECT experience.username," +
                                         "experience.dept_code," +
@@ -47,15 +56,19 @@ public class Experience {
                                         "satisfaction," +
                                         "grade," +
                                         "rank_of_instructor," +
+                                        "topic, " +
                                         "start_interest," +
                                         "end_interest," +
                                         "skill," +
                                         "start_level," +
                                         "end_level " +
-                                        "FROM experience natural join course_skills";
+                                        "FROM experience natural join course_skills natural join course_topics";
+    
+    
 
     PreparedStatement stmt1 = null;
-    PreparedStatement stmt2 = null;         
+    PreparedStatement stmt2 = null;
+    PreparedStatement stmt3 = null; 
 
     public void addExperienceToDB(Connection conn) throws SQLException {
 		if (!this.validate()){
@@ -69,13 +82,11 @@ public class Experience {
             stmt1 = conn.prepareStatement(updateSQL1);
             stmt1.setString(1, this.satisfaction);
             stmt1.setString(2, this.rankOfInstructor);
-            stmt1.setString(3, this.startInterest);
-            stmt1.setString(4, this.endInterest);
-            stmt1.setString(5, this.username);
-            stmt1.setString(6, this.deptCode);
-            stmt1.setString(7, this.courseNum);
-            stmt1.setString(8, this.startDate);
-            stmt1.setString(9, this.sectionId);
+            stmt1.setString(3, this.username);
+            stmt1.setString(4, this.deptCode);
+            stmt1.setString(5, this.courseNum);
+            stmt1.setString(6, this.startDate);
+            stmt1.setString(7, this.sectionId);
 
             stmt2 = conn.prepareStatement(updateSQL2);
             stmt2.setString(1, this.startLevel);
@@ -86,9 +97,20 @@ public class Experience {
             stmt2.setString(6, this.startDate);
             stmt2.setString(7, this.sectionId);
             stmt2.setString(8, this.skill);
+            
+            stmt3 = conn.prepareStatement(updateSQL3);
+            stmt3.setString(1, this.startInterest);
+            stmt3.setString(2, this.endInterest);
+            stmt3.setString(3, this.username);
+            stmt3.setString(4, this.deptCode);
+            stmt3.setString(5, this.courseNum);
+            stmt3.setString(6, this.startDate);
+            stmt3.setString(7, this.sectionId);
+            stmt3.setString(8, this.topic);
 
             stmt1.execute();
             stmt2.execute();
+            stmt3.execute();
 
             conn.commit();
 
@@ -100,6 +122,9 @@ public class Experience {
 			}
 			if (stmt2 != null) {
 				stmt2.close();
+			}
+			if (stmt3 != null) {
+				stmt3.close();
 			}
         }
     }
@@ -123,6 +148,7 @@ public class Experience {
                 exp.setGrade(rs.getString("grade"));
                 exp.setSatisfaction(rs.getString("satisfaction"));
                 exp.setRankOfInstructor(rs.getString("rank_of_instructor"));
+                exp.setTopic(rs.getString("topic"));
                 exp.setStartInterest(rs.getString("start_interest"));
                 exp.setEndInterest(rs.getString("end_interest"));
                 exp.setSkill(rs.getString("skill"));
@@ -219,6 +245,14 @@ public class Experience {
 
     public void setRankOfInstructor(String rankOfInstructor) {
         this.rankOfInstructor = rankOfInstructor;
+    }
+    
+    public String getTopic() {
+        return this.topic;
+    }
+
+    public void setTopic(String topic) {
+        this.topic = topic;
     }
 
     public String getStartInterest() {

@@ -26,6 +26,7 @@ public class CEA extends JFrame {
     JLabel label_GRADE;
     JLabel label_SATISFACTION;
     JLabel label_RANK_OF_INSTRUCTOR;
+    JLabel label_TOPIC;
     JLabel label_START_INTEREST;
     JLabel label_END_INTEREST;
     JLabel label_SKILL;
@@ -40,6 +41,7 @@ public class CEA extends JFrame {
     JTextField textField_GRADE;
     JTextField textField_SATISFACTION;
     JTextField textField_RANK_OF_INSTRUCTOR;
+    JTextField textField_TOPIC;
     JTextField textField_START_INTEREST;
     JTextField textField_END_INTEREST;
     JTextField textField_SKILL;
@@ -49,7 +51,7 @@ public class CEA extends JFrame {
     JButton button_ADD_EXPERIENCE;
 
     Object[] columnNames = {"Username", "Dept_Code", "Course_Num", "Start_Date",
-    "Section_Id", "Grade", "Satisfaction", "Rank_Of_Instructor", 
+    "Section_Id", "Grade", "Satisfaction", "Rank_Of_Instructor", "Topic",
     "Start_Interest", "End_Interest", "Skill", "Start_Level", "End_Level"};
 
     public CEA(Connection conn) throws SQLException {
@@ -76,6 +78,7 @@ public class CEA extends JFrame {
         label_GRADE = new JLabel("Grade:");
         label_SATISFACTION = new JLabel("Satisfaction:");
         label_RANK_OF_INSTRUCTOR = new JLabel("Rank_Of_Instructor:");
+        label_TOPIC = new JLabel("Topic:");
         label_START_INTEREST = new JLabel("Start_Interest:");
         label_END_INTEREST = new JLabel("End_Interest:");
         label_SKILL = new JLabel("Skill:");
@@ -90,6 +93,7 @@ public class CEA extends JFrame {
         textField_GRADE = new JTextField(10);
         textField_SATISFACTION = new JTextField(10);
         textField_RANK_OF_INSTRUCTOR = new JTextField(10);
+        textField_TOPIC = new JTextField(10);
         textField_START_INTEREST = new JTextField(10);
         textField_END_INTEREST = new JTextField(10);
         textField_SKILL = new JTextField(10);
@@ -206,8 +210,8 @@ public class CEA extends JFrame {
         c.anchor = GridBagConstraints.LINE_START;
         c.weightx = 0.25;
         c.weighty = 0;
-        c.gridx = 2;
-        c.gridy = 4;
+        c.gridx = 0;
+        c.gridy = 5;
         c.gridwidth = 1;
         contentPane.add(label_SATISFACTION, c);
 
@@ -215,8 +219,8 @@ public class CEA extends JFrame {
         c.anchor = GridBagConstraints.LINE_END;
         c.weightx = 0.75;
         c.weighty = 0;
-        c.gridx = 3;
-        c.gridy = 4;
+        c.gridx = 1;
+        c.gridy = 5;
         c.gridwidth = 1;
         contentPane.add(textField_SATISFACTION, c);
 
@@ -224,7 +228,7 @@ public class CEA extends JFrame {
         c.weightx = 0.25;
         c.weighty = 0;
         c.anchor = GridBagConstraints.LINE_START;
-        c.gridx = 0;
+        c.gridx = 2;
         c.gridy = 5;
         c.gridwidth = 1;
         contentPane.add(label_RANK_OF_INSTRUCTOR, c);
@@ -233,29 +237,11 @@ public class CEA extends JFrame {
         c.anchor = GridBagConstraints.LINE_END;
         c.weightx = 0.75;
         c.weighty = 0;
-        c.gridx = 1;
-        c.gridy = 5;
-        c.gridwidth = 1;
-        contentPane.add(textField_RANK_OF_INSTRUCTOR, c);
-
-        c.fill = GridBagConstraints.HORIZONTAL;
-        c.anchor = GridBagConstraints.LINE_START;
-        c.weightx = 0.25;
-        c.weighty = 0;
-        c.gridx = 2;
-        c.gridy = 5;
-        c.gridwidth = 1;
-        contentPane.add(label_START_INTEREST, c);
-
-        c.fill = GridBagConstraints.HORIZONTAL;
-        c.anchor = GridBagConstraints.LINE_END;
-        c.weightx = 0.75;
-        c.weighty = 0;
         c.gridx = 3;
         c.gridy = 5;
         c.gridwidth = 1;
-        contentPane.add(textField_START_INTEREST, c);
-
+        contentPane.add(textField_RANK_OF_INSTRUCTOR, c);
+        
         c.fill = GridBagConstraints.HORIZONTAL;
         c.anchor = GridBagConstraints.LINE_START;
         c.weightx = 0.25;
@@ -263,7 +249,7 @@ public class CEA extends JFrame {
         c.gridx = 0;
         c.gridy = 6;
         c.gridwidth = 1;
-        contentPane.add(label_END_INTEREST, c);
+        contentPane.add(label_TOPIC, c);
 
         c.fill = GridBagConstraints.HORIZONTAL;
         c.anchor = GridBagConstraints.LINE_END;
@@ -272,14 +258,50 @@ public class CEA extends JFrame {
         c.gridx = 1;
         c.gridy = 6;
         c.gridwidth = 1;
-        contentPane.add(textField_END_INTEREST, c);
+        contentPane.add(textField_TOPIC, c);
+
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.anchor = GridBagConstraints.LINE_START;
+        c.weightx = 0.25;
+        c.weighty = 0;
+        c.gridx = 0;
+        c.gridy = 7;
+        c.gridwidth = 1;
+        contentPane.add(label_START_INTEREST, c);
+
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.anchor = GridBagConstraints.LINE_END;
+        c.weightx = 0.75;
+        c.weighty = 0;
+        c.gridx = 1;
+        c.gridy = 7;
+        c.gridwidth = 1;
+        contentPane.add(textField_START_INTEREST, c);
 
         c.fill = GridBagConstraints.HORIZONTAL;
         c.anchor = GridBagConstraints.LINE_START;
         c.weightx = 0.25;
         c.weighty = 0;
         c.gridx = 2;
-        c.gridy = 6;
+        c.gridy = 7;
+        c.gridwidth = 1;
+        contentPane.add(label_END_INTEREST, c);
+
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.anchor = GridBagConstraints.LINE_END;
+        c.weightx = 0.75;
+        c.weighty = 0;
+        c.gridx = 3;
+        c.gridy = 7;
+        c.gridwidth = 1;
+        contentPane.add(textField_END_INTEREST, c);
+
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.anchor = GridBagConstraints.LINE_START;
+        c.weightx = 0.25;
+        c.weighty = 0;
+        c.gridx = 0;
+        c.gridy = 8;
         c.gridwidth = 1;
         contentPane.add(label_SKILL, c);
 
@@ -287,8 +309,8 @@ public class CEA extends JFrame {
         c.anchor = GridBagConstraints.LINE_END;
         c.weightx = 0.75;
         c.weighty = 0;
-        c.gridx = 3;
-        c.gridy = 6;
+        c.gridx = 1;
+        c.gridy = 8;
         c.gridwidth = 1;
         contentPane.add(textField_SKILL, c);
 
@@ -297,7 +319,7 @@ public class CEA extends JFrame {
         c.weightx = 0.25;
         c.weighty = 0;
         c.gridx = 0;
-        c.gridy = 7;
+        c.gridy = 9;
         c.gridwidth = 1;
         contentPane.add(label_START_LEVEL, c);
 
@@ -306,7 +328,7 @@ public class CEA extends JFrame {
         c.weightx = 0.75;
         c.weighty = 0;
         c.gridx = 1;
-        c.gridy = 7;
+        c.gridy = 9;
         c.gridwidth = 1;
         contentPane.add(textField_START_LEVEL, c);
 
@@ -315,7 +337,7 @@ public class CEA extends JFrame {
         c.weightx = 0.25;
         c.weighty = 0;
         c.gridx = 2;
-        c.gridy = 7;
+        c.gridy = 9;
         c.gridwidth = 1;
         contentPane.add(label_END_LEVEL, c);
 
@@ -324,7 +346,7 @@ public class CEA extends JFrame {
         c.weightx = 0.75;
         c.weighty = 0;
         c.gridx = 3;
-        c.gridy = 7;
+        c.gridy = 9;
         c.gridwidth = 1;
         contentPane.add(textField_END_LEVEL, c);
 
@@ -333,7 +355,7 @@ public class CEA extends JFrame {
         c.weightx = 0.5;
         c.weighty = 0;
         c.gridx = 0;
-        c.gridy = 8;
+        c.gridy = 10;
         c.gridwidth = 4;
         contentPane.add(button_ADD_EXPERIENCE, c);
 
@@ -349,6 +371,7 @@ public class CEA extends JFrame {
 
                 exp.setSatisfaction(textField_SATISFACTION.getText());
                 exp.setRankOfInstructor(textField_RANK_OF_INSTRUCTOR.getText());
+                exp.setTopic(textField_TOPIC.getText());
                 exp.setStartInterest(textField_START_INTEREST.getText());
                 exp.setEndInterest(textField_END_INTEREST.getText());
                 exp.setSkill(textField_SKILL.getText());
@@ -375,6 +398,7 @@ public class CEA extends JFrame {
         textField_GRADE.setText("");
         textField_SATISFACTION.setText("");
         textField_RANK_OF_INSTRUCTOR.setText("");
+        textField_TOPIC.setText("");
         textField_START_INTEREST.setText("");
         textField_END_INTEREST.setText("");
         textField_SKILL.setText("");
@@ -388,8 +412,8 @@ public class CEA extends JFrame {
             java.util.List<Experience> experiences = Experience.getAllExperiences(connection);
             
             for (Experience exp : experiences) {
-                Object[] obj = new Object[13];
-
+                Object[] obj = new Object[14];
+                
                 obj[0] = exp.getUsername();
                 obj[1] = exp.getDeptCode();
                 obj[2] = exp.getCourseNum();
@@ -398,11 +422,12 @@ public class CEA extends JFrame {
                 obj[5] = exp.getGrade();
                 obj[6] = exp.getSatisfaction();
                 obj[7] = exp.getRankOfInstructor();
-                obj[8] = exp.getStartInterest();
-                obj[9] = exp.getEndInterest();
-                obj[10] = exp.getSkill();
-                obj[11] = exp.getStartLevel();
-                obj[12] = exp.getEndLevel();
+                obj[8] = exp.getTopic();
+                obj[9] = exp.getStartInterest();
+                obj[10] = exp.getEndInterest();
+                obj[11] = exp.getSkill();
+                obj[12] = exp.getStartLevel();
+                obj[13] = exp.getEndLevel();
 
                 model.addRow(obj);
             }
@@ -416,29 +441,35 @@ public class CEA extends JFrame {
     
     public static void printTable(Connection conn) throws SQLException {
 		Statement stmt = null;
-	    String query = "select e.dept_code, e.start_date, sec.end_date, time_of_day, enrol_num, " +
-	    		 		"e.username, e.grade, 2016-stu.birth_year, stu.birth_year || ' ' || stu.birth_month, stu.gender, stu.birth_country, sl, stu.enrol_year || ' ' || stu.enrol_month, e.satisfaction, rank_of_instructor, sse " +
-	    				"from experience as e, students as stu," +
+//	    String query = "select e.dept_code || e.course_num, e.start_date, sec.end_date, time_of_day, enrol_num, ins, " +
+//	    		 		"e.username, e.grade, 2016-stu.birth_year, stu.birth_year || ' ' || stu.birth_month, stu.gender, stu.birth_country, sl, stu.enrol_year || ' ' || stu.enrol_month, e.satisfaction, rank_of_instructor, sse, tse " +
+//	    				"from " +
+	    		 		
+	    				String query = "select * from " +
 	    		 		
 	    					"(select dept_code, course_num, start_date, section_id, end_date, time_of_day, enrol_num," +
 	    					"group_concat(instructor_name, '|') as ins " +
 	    					"from sections as sec " +
-	    					"group by dept_code, course_num, start_date, section_id) as sec, " +
+	    					"group by dept_code, course_num, start_date, section_id) as sec natural join " +
 	    					
-	    					"(select username, company_name, title, " +
-	    					"group_concat(em_skill || '-' || level, '|') as sl " +
-	    					"from employment_skills as eskills " +
-	    					"group by username) as employment_skills, " +
+							"students as stu natural join " +
+	    					"experience as e "; 
+//	    					 
+//	    					"(select dept_code, course_num, start_date, section_id, username, " +
+//	    					"group_concat(skill || '-' || start_level || '-' || end_level, '|') as sse " +
+//	    					"from course_skills as cs " +
+//	    					"group by dept_code, course_num, start_date, section_id) as css natural join " +
+//	    					
+//	    					"(select dept_code, course_num, start_date, section_id, username, " +
+//	    					"group_concat(topic || '-' || start_interest || '-' || end_interest, '|') as tse " +
+//	    					"from course_topics as ci " +
+//	    					"group by dept_code, course_num, start_date, section_id) as cts natural join " +
+//	    					
+//	    					"(select username, company_name, title, " +
+//	    					"group_concat(em_skill || '-' || level, '|') as sl " +
+//	    					"from employment_skills as eskills " +
+//	    					"group by username) as eks ";
 	    					
-	    					"(select dept_code, course_num, start_date, section_id, username, " +
-	    					"group_concat(skill || '-' || start_level || '-' || end_level, '|') as sse " +
-	    					"from course_skills as cs " +
-	    					"group by dept_code, course_num, start_date, section_id) as course_skills " +
-	    					
-	    				"where e.dept_code = sec.dept_code and " +
-	    				"e.course_num = sec.course_num and " +
-	    				"e.username = stu.username";
-	   
 	    try {
 	        stmt = conn.createStatement();
 	        ResultSet rs = stmt.executeQuery(query);
