@@ -6,7 +6,9 @@ import java.sql.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.*;
 
 @SuppressWarnings("serial")
@@ -439,11 +441,13 @@ public class CEA extends JFrame {
         }
     }
     
-    public static void printTable(Connection conn) throws SQLException {
+    public static void printTable(Connection conn) throws SQLException, FileNotFoundException {
 		Statement stmt = null;
-	    String query = "select e.dept_code || e.course_num, e.start_date, sec.end_date, time_of_day, enrol_num, ins, " +
-	    		 		"e.username, e.grade, 2016-stu.birth_year, stu.birth_year || ' ' || stu.birth_month, stu.gender, stu.birth_country, sl, stu.enrol_year || ' ' || stu.enrol_month, e.satisfaction, rank_of_instructor, sse, tse " +
-	    				"from " +
+	    String query = "select e.dept_code || e.course_num, e.start_date, sec.end_date, time_of_day, enrol_num," +
+	    			   "ins, e.username, e.grade, 2016-stu.birth_year, stu.birth_year || ' ' || stu.birth_month," + 
+	    			   "stu.gender, stu.birth_country, sl, stu.enrol_year || ' ' || stu.enrol_month, e.satisfaction," +
+	    			   "rank_of_instructor, sse, tse " +
+	    			   "from " +
 	    		 		
 	    					"(select dept_code, course_num, start_date, section_id, end_date, time_of_day, enrol_num," +
 	    					"group_concat(instructor_name, '|') as ins " +
@@ -469,20 +473,34 @@ public class CEA extends JFrame {
 	    					"group by username) as eks ";
 	    					
 	    try {
+	    	String result = "Course number, Course start date, Course end date, Time of day, total number of students," +
+	    					"Numebr of instructors, Student username, Course grade, Student age, Student year and month of birth," +
+	    					"Student gender, Student country of birth, List of skills outside academia in skill-rank," +
+	    					"Student start date at University, Course satisfaction, Intructor ranking," +
+	    					"List of skills learned in course skill-rank_before-rank_after," +
+	    					"List of topics learned in course topic-rank_before-rank_after \n";
+	    	
 	        stmt = conn.createStatement();
 	        ResultSet rs = stmt.executeQuery(query);
 	        int cols = rs.getMetaData().getColumnCount();
+	        
 	        while (rs.next()) {
 	        	for (int i=0; i< cols; i++) {
 	        		Object str = rs.getObject(i+1);
 	        		if (i < cols - 1) {
 	        			str += ",";
 	        		}
-        			System.out.print(str);
+        			result += str;
 	        	}
 	        		
-	        	System.out.print("\n");	           
+	        	result += "\n";	           
 	        }
+	        
+	        // print to csv
+	        PrintWriter out = new PrintWriter("CEA_export.csv");
+	        out.println(result);
+	        out.close();
+	        
 	    } catch (SQLException e ) {
 	    	SQLError.show(e);
 	       // JDBCTutorialUtilities.printSQLException(e);
