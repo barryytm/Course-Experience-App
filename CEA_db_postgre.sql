@@ -149,6 +149,7 @@ CREATE TABLE sections (
     instructor_name varchar(30)
         REFERENCES instructors ON UPDATE CASCADE ON DELETE SET NULL,
     enrol_num integer,
+    UNIQUE(dept_code, course_num, start_date, section_id),
     FOREIGN KEY (dept_code, course_num)
         REFERENCES courses (dept_code, num) ON UPDATE CASCADE,
     PRIMARY KEY (dept_Code, course_num, start_date, section_id, instructor_name),
