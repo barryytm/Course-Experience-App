@@ -146,7 +146,7 @@ CREATE TABLE sections (
     section_id int,
     end_date date,
     time_of_day time_type,
-    instructor_name varchar(30);
+    instructor_name varchar(30)
         REFERENCES instructors ON UPDATE CASCADE ON DELETE SET NULL,
     enrol_num integer,
     FOREIGN KEY (dept_code, course_num)
