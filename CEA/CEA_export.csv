@@ -1,7 +1,7 @@
 Course number, Course start date, Course end date, Time of day, total number of students,Numebr of instructors, Student username, Course grade, Student age, Student year and month of birth,Student gender, Student country of birth, List of skills outside academia in skill-rank,Student start date at University, Course satisfaction, Intructor ranking,List of skills learned in course skill-rank_before-rank_after,List of topics learned in course topic-rank_before-rank_after 
-BIO130,2015-01-01,2015-04-30,morning,1200,William|Young,jiananya,87,21,1995 11,male,china,C-4|C++-3,2014 9,null,null,null,null
-CHM139,2014-09-01,2015-04-30,morning,1200,Lee,yungtsz,75,20,1996 1,male,canada,C++-4,2014 9,null,null,null,null
-MAT135,2014-09-01,2014-12-31,morning,1200,Phill,yungtsz,90,20,1996 1,male,canada,C++-4,2014 9,null,null,null,null
-MAT136,2015-01-01,2015-04-30,morning,1200,Young,jiananya,77,21,1995 11,male,china,C-4|C++-3,2014 9,null,null,null,null
-PHY151,2014-09-01,2014-12-31,morning,1200,Dwight|Phill,yungtsz,81,20,1996 1,male,canada,C++-4,2014 9,null,null,null,null
+BIO130,2015-01-01,2015-04-30,morning,1200,William,jiananya,87,21,1995 11,male,china,C-4|C++-3,2014 9,3,4,cell and systems-3-5,Patterns-2-3
+CHM139,2014-09-01,2015-04-30,morning,1200,Lee|Truman,yungtsz,75,20,1996 1,male,canada,C++-4,2014 9,4,5,laws of thermodynamics-4-5,AI-4-2|relation algebra-4-5
+MAT135,2014-09-01,2014-12-31,morning,1200,Phill,yungtsz,90,20,1996 1,male,canada,C++-4,2014 9,3,4,chain rule-2-3,relativity-2-4
+MAT136,2015-01-01,2015-04-30,morning,1200,William|Young,jiananya,77,21,1995 11,male,china,C-4|C++-3,2014 9,4,3,integration-4-5|tri-5-5,database-2-3
+PHY151,2014-09-01,2014-12-31,morning,1200,Phill,yungtsz,81,20,1996 1,male,canada,C++-4,2014 9,2,2,law of conservation of energy-2-3,relativity-3-3
 
