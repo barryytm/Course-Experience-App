@@ -146,12 +146,12 @@ CREATE TABLE sections (
     section_id int,
     end_date date,
     time_of_day time_type,
-    instructor_name varchar(30)
+    instructor_name varchar(30);
         REFERENCES instructors ON UPDATE CASCADE ON DELETE SET NULL,
-    enrol_num int,
+    enrol_num integer,
     FOREIGN KEY (dept_code, course_num)
         REFERENCES courses (dept_code, num) ON UPDATE CASCADE,
-    PRIMARY KEY (dept_code, course_num, start_date, section_id),
+    PRIMARY KEY (dept_Code, course_num, start_date, section_id, instructor_name),
     CONSTRAINT check_section CHECK (start_date < end_date)
 );
 
@@ -193,11 +193,11 @@ CREATE TABLE course_topics (
     course_num course_digit,
     start_date date,
     section_id int,
-    unsername varchar(30),
+    username varchar(30),
     topic varchar(30),
     start_interest five_level,
     end_interest five_level,
-    FOREIGN KEY (dept_code, course_num, start_date, section_id, unsername)
+    FOREIGN KEY (dept_code, course_num, start_date, section_id, username)
         REFERENCES experience (dept_code, course_num, start_date, section_id, username)
         ON UPDATE CASCADE,
     PRIMARY KEY (dept_code, course_num, start_date, section_id, username, topic)
