@@ -151,7 +151,7 @@ CREATE TABLE sections (
     enrol_num int,
     FOREIGN KEY (dept_code, course_num)
         REFERENCES courses (dept_code, num) ON UPDATE CASCADE,
-    PRIMARY KEY (dept_Code, course_num, start_date, section_id),
+    PRIMARY KEY (dept_code, course_num, start_date, section_id),
     CONSTRAINT check_section CHECK (start_date < end_date)
 );
 
@@ -198,7 +198,7 @@ CREATE TABLE course_topics (
     start_interest five_level,
     end_interest five_level,
     FOREIGN KEY (dept_code, course_num, start_date, section_id, unsername)
-        REFERENCES experience (dept_code, course_num, start_date, section_id, username) 
+        REFERENCES experience (dept_code, course_num, start_date, section_id, username)
         ON UPDATE CASCADE,
     PRIMARY KEY (dept_code, course_num, start_date, section_id, username, topic)
 );
