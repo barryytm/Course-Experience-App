@@ -23,6 +23,7 @@ INSERT INTO courses VALUES ('MAT', 221, 'science');
 INSERT INTO courses VALUES ('MAT', 223, 'science');
 INSERT INTO courses VALUES ('MAT', 240, 'science');
 INSERT INTO courses VALUES ('CSC', 148, 'science');
+INSERT INTO courses VALUES ('CSC', 108, 'science');
 INSERT INTO courses VALUES ('CSC', 165, 'science');
 INSERT INTO courses VALUES ('CSC', 207, 'science');
 INSERT INTO courses VALUES ('CSC', 209, 'science');
@@ -34,6 +35,10 @@ INSERT INTO courses VALUES ('PHL', 245, 'humanity');
 INSERT INTO courses VALUES ('GGR', 101, 'science');
 INSERT INTO courses VALUES ('CLA', 201, 'humanity');
 INSERT INTO courses VALUES ('ANT', 100, 'humanity');
+INSERT INTO courses VALUES ('CSC', 309, 'science');
+INSERT INTO courses VALUES ('CSC', 343, 'science');
+INSERT INTO courses VALUES ('CSC', 369, 'science');
+
 
 INSERT INTO students VALUES ('jiananya', 'male', 1995, 11, 'china', 2014, 09);
 INSERT INTO students VALUES ('yungtsz', 'male', 1996, 01, 'canada', 2014, 09);
@@ -92,7 +97,7 @@ INSERT INTO prerequisites VALUES('CSC', 343, 'CSC', 207);
 INSERT INTO prerequisites VALUES('CSC', 369, 'CSC', 209);
 INSERT INTO prerequisites VALUES('CSC', 369, 'CSC', 258);
 
-INSERT INTO companies VALUES('A&B ltd');
+INSERT INTO companies VALUES('A&B Ltd');
 INSERT INTO companies VALUES('North America Corporation');
 
 INSERT INTO company_expertise VALUES('A&B Ltd', 'energy');

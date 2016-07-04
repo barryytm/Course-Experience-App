@@ -125,8 +125,8 @@ CREATE TABLE employments (
     CONSTRAINT check_work CHECK (start_date < end_date)
 );
 
-DROP TABLE IF EXISTS employment_skill CASCADE;
-CREATE TABLE employment_skill (
+DROP TABLE IF EXISTS employment_skills CASCADE;
+CREATE TABLE employment_skills (
     username varchar(30),
     company_name varchar(30),
     title varchar(30),
